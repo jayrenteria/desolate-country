@@ -18,8 +18,22 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(sortValues)
-  }, [sortValues]);
+    const newValues = fullData.filter(data => {
+      let nameMatches = checkForMatch(sortValues, 'name', data);
+      let institutionMatches = checkForMatch(sortValues, 'name_of_institution', data);
+      let yearMatches = checkForMatch(sortValues, 'year', data);
+      return nameMatches && institutionMatches && yearMatches;
+    })
+    console.log(newValues);
+    setShownData(newValues);
+  }, [sortValues, fullData]);
+
+  const checkForMatch = (sortValues, key, data) => {
+    if ( sortValues[key]?.length ) {
+      return sortValues[key].indexOf(data[key]) > -1;
+    }
+    return true;
+  }
 
   const updateSort = (key, values) => {
     setSortValues({...sortValues, [key]: values});
@@ -29,7 +43,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={"Numbers"} setSelected={result => updateSort('name', result)} items={["One", "Two"]}/>
+        <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={["Joseph A Balfe", "Someone else"]}/>
         <Map 
           dataToShow={shownData}
         />
