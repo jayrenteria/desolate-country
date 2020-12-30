@@ -9,6 +9,7 @@ function App() {
 
   const [fullData, setFullData] = useState([]);
   const [shownData, setShownData] = useState([]);
+  const [sortValues, setSortValues] = useState({});
 
   useEffect(() => {
     const data = getData();
@@ -16,11 +17,19 @@ function App() {
     setShownData(data);
   }, []);
 
+  useEffect(() => {
+    console.log(sortValues)
+  }, [sortValues]);
+
+  const updateSort = (key, values) => {
+    setSortValues({...sortValues, [key]: values});
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={"Numbers"} setSelected={result => console.log(result)} items={["One", "Two"]}/>
+        <Filter label={"Numbers"} setSelected={result => updateSort('name', result)} items={["One", "Two"]}/>
         <Map />
         <p>
           Edit <code>src/App.js</code> and save to reload.
