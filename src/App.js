@@ -30,7 +30,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Filter label={"Numbers"} setSelected={result => updateSort('name', result)} items={["One", "Two"]}/>
-        <Map />
+        <Map 
+          dataToShow={shownData}
+        />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
