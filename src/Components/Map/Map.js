@@ -14,7 +14,7 @@ function Map() {
 
 
     return(
-        <div style={{width: '100%', height: '100%'}}>
+        <div style={{width: '100%', height: '800px'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: '' }}
                 defaultCenter={defaults.center}
