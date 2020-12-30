@@ -27,7 +27,7 @@ function App() {
         institutionMatches =  sortValues.name_of_institution.indexOf(data.name_of_institution) > -1
       }
       let yearMatches = true;
-      if ( sortValues.name_of_institution?.length ) {
+      if ( sortValues.year?.length ) {
         yearMatches =  sortValues.year.indexOf(data.year) > -1
       }
       return nameMatches && institutionMatches && yearMatches;
