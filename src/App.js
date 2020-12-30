@@ -17,8 +17,20 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(sortValues)
-  }, [sortValues]);
+    const newValues = fullData.filter(data => {
+      let nameMatches = true;
+      if ( sortValues.name?.length ) {
+        nameMatches =  sortValues.name.indexOf(data.name) > -1
+      }
+      let institutionMatches = true;
+      if ( sortValues.name_of_institution?.length ) {
+        institutionMatches =  sortValues.name_of_institution.indexOf(data.name_of_institution) > -1
+      }
+      return nameMatches && institutionMatches;
+    })
+    console.log(newValues);
+    setShownData(newValues);
+  }, [sortValues, fullData]);
 
   const updateSort = (key, values) => {
     setSortValues({...sortValues, [key]: values});
@@ -28,7 +40,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={"Numbers"} setSelected={result => updateSort('name', result)} items={["One", "Two"]}/>
+        <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={["Joseph A Balfe", "Someone else"]}/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
