@@ -55,6 +55,8 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={getItems('name')}/>
+        <Filter label={"Institution"} setSelected={result => updateSort('name_of_institution', result)} items={getItems('name_of_institution')}/>
+        <Filter label={"Year"} setSelected={result => updateSort('year', result)} items={getItems('year')}/>
         <Map 
           dataToShow={shownData}
         />
