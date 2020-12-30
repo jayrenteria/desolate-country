@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Filter from './Components/Filter';
+import Filter from './Filter';
+import Map from './Components/Map/Map';
 import { getData } from './utils/getData'
 
 function App() {
@@ -43,6 +44,9 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={["Joseph A Balfe", "Someone else"]}/>
+        <Map 
+          dataToShow={shownData}
+        />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
