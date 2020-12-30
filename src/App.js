@@ -18,23 +18,21 @@ function App() {
 
   useEffect(() => {
     const newValues = fullData.filter(data => {
-      let nameMatches = true;
-      if ( sortValues.name?.length ) {
-        nameMatches =  sortValues.name.indexOf(data.name) > -1
-      }
-      let institutionMatches = true;
-      if ( sortValues.name_of_institution?.length ) {
-        institutionMatches =  sortValues.name_of_institution.indexOf(data.name_of_institution) > -1
-      }
-      let yearMatches = true;
-      if ( sortValues.year?.length ) {
-        yearMatches =  sortValues.year.indexOf(data.year) > -1
-      }
+      let nameMatches = checkForMatch(sortValues, 'name', data);
+      let institutionMatches = checkForMatch(sortValues, 'name_of_institution', data);
+      let yearMatches = checkForMatch(sortValues, 'year', data);
       return nameMatches && institutionMatches && yearMatches;
     })
     console.log(newValues);
     setShownData(newValues);
   }, [sortValues, fullData]);
+
+  const checkForMatch = (sortValues, key, data) => {
+    if ( sortValues[key]?.length ) {
+      return sortValues[key].indexOf(data[key]) > -1;
+    }
+    return true;
+  }
 
   const updateSort = (key, values) => {
     setSortValues({...sortValues, [key]: values});
