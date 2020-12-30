@@ -1,8 +1,20 @@
+import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Filter from './Filter';
+import { getData } from './utils/getData'
 
 function App() {
+
+  const [fullData, setFullData] = useState([]);
+  const [shownData, setShownData] = useState([]);
+
+  useEffect(() => {
+    const data = getData();
+    setFullData(data);
+    setShownData(data);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
