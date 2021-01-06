@@ -10,11 +10,17 @@ function App() {
   const [fullData, setFullData] = useState([]);
   const [shownData, setShownData] = useState([]);
   const [sortValues, setSortValues] = useState({});
-  const data = getData();
+  const [names, setNames] = useState([]);
+  const [names_of_institutions, setNamesOfInstitutions] = useState([]);
+  const [years, setYears] = useState([]);
 
   useEffect(() => {
+    const data = getData();
     setFullData(data);
     setShownData(data);
+    setNames(getItems('name', data));
+    setNamesOfInstitutions(getItems('name_of_institution', data));
+    setYears(getItems('year', data));
   }, []);
 
   useEffect(() => {
@@ -24,7 +30,6 @@ function App() {
       let yearMatches = checkForMatch(sortValues, 'year', data);
       return nameMatches && institutionMatches && yearMatches;
     })
-    console.log(newValues);
     setShownData(newValues);
   }, [sortValues, fullData]);
 
@@ -39,7 +44,7 @@ function App() {
     setSortValues({...sortValues, [key]: values});
   }
 
-  const getItems = (type) => {
+  const getItems = (type, data) => {
     let items = []
     Object.keys(data).map((key, index) => {
       if (!items.includes(data[key][type])) {
@@ -54,9 +59,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={getItems('name')}/>
-        <Filter label={"Institution"} setSelected={result => updateSort('name_of_institution', result)} items={getItems('name_of_institution')}/>
-        <Filter label={"Year"} setSelected={result => updateSort('year', result)} items={getItems('year')}/>
+        <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={names}/>
+        <Filter label={"Institution"} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions}/>
+        <Filter label={"Year"} setSelected={result => updateSort('year', result)} items={years}/>
         <Map 
           dataToShow={shownData}
         />
