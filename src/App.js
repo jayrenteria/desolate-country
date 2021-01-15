@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Filter from './Components/Filter';
+import RangeFilter from './Components/RangeFilter';
 import Map from './Components/Map/Map';
 import { getData } from './utils/getData'
 
@@ -27,7 +28,7 @@ function App() {
     const newValues = fullData.filter(data => {
       let nameMatches = checkForMatch(sortValues, 'name', data);
       let institutionMatches = checkForMatch(sortValues, 'name_of_institution', data);
-      let yearMatches = checkForMatch(sortValues, 'year', data);
+      let yearMatches = checkForYears(sortValues, data);
       return nameMatches && institutionMatches && yearMatches;
     })
     setShownData(newValues);
@@ -36,6 +37,15 @@ function App() {
   const checkForMatch = (sortValues, key, data) => {
     if ( sortValues[key]?.length ) {
       return sortValues[key].indexOf(data[key]) > -1;
+    }
+    return true;
+  }
+
+  const checkForYears = (sortValues, data) => {
+    if ( sortValues['year']?.length ) {
+      const [min, max] = sortValues['year'];
+      const [data_min, data_max] = data['year'].split('-');
+        return min <= parseInt(data_min) && max >= parseInt(data_max);
     }
     return true;
   }
@@ -59,23 +69,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={"Name"} setSelected={result => updateSort('name', result)} items={names}/>
-        <Filter label={"Institution"} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions}/>
-        <Filter label={"Year"} setSelected={result => updateSort('year', result)} items={years}/>
+        <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
+        <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
+        <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
         <Map 
           dataToShow={shownData}
         />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
     </div>
   );
