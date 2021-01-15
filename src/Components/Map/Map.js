@@ -26,6 +26,7 @@ function Map({dataToShow}) {
                             lat={institution.latitude}
                             lng={institution.longitude}
                             text={institution.name_of_institution}
+                            institution={institution}
                         />
                     )
                 })}

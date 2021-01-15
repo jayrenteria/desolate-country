@@ -1,0 +1,9 @@
+.info-window {
+    background: white;
+    width: auto;
+    position: absolute;
+    color: black;
+    padding: 20px;
+    bottom: 0;
+    margin-bottom: 30px;
+}
