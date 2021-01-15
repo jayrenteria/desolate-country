@@ -1,43 +1,46 @@
-import { useState } from 'react';
-import Dropdown from 'rc-dropdown';
-import Menu, { Item } from 'rc-menu';
-import 'rc-dropdown/assets/index.css';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Chip from '@material-ui/core/Chip';
 
 function Filter({
-    setSelected,
     items,
-    label
+    label,
+    setSelected,
+    selected
 }) {
 
-    const [visible, setVisible] = useState(false);
-
-    const menu = (
-        <Menu
-        style={{ width: 140 }}
-        multiple
-        onSelect={({ selectedKeys }) => setSelected(selectedKeys)}
-        onDeselect={({ selectedKeys }) => setSelected(selectedKeys)}
-        >
-            {
-                items.map(item => (
-                    <Item key={item}>{item}</Item>
-                ))
-            }
-        </Menu>
-    );
+    const handleChangeMultiple = (event) => {
+        const { value } = event.target;
+        setSelected(value);
+    };
 
     return (
-        <Dropdown
-          trigger={['click']}
-          onVisibleChange={setVisible}
-          visible={visible}
-          closeOnSelect={false}
-          overlay={menu}
-          animation="slide-up"
-        >
-          <button>Filter {label}</button>
-        </Dropdown>
-      );
+        <FormControl>
+            <InputLabel>{label}</InputLabel>
+            <Select
+                multiple
+                value={selected ?? []}
+                onChange={handleChangeMultiple}
+                input={<Input/>}
+                renderValue={(selected) => (
+                    <div>
+                    {selected.map((value) => (
+                        <Chip key={value} label={value}/>
+                    ))}
+                    </div>
+                )}
+                >
+                {items.map((item, index) => (
+                    <MenuItem key={item+index} value={item}>
+                    {item}
+                    </MenuItem>
+                ))}
+            </Select>
+      </FormControl>
+    )
 }
 
 
