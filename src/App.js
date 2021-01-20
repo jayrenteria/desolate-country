@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, FormGroup, Typography } from '@material-ui/core';
+import { Card, FormGroup, Typography, AppBar } from '@material-ui/core';
 import logo from './logo.svg';
 import './App.css';
 import Filter from './Components/Filter';
@@ -13,8 +13,15 @@ const useStyles = makeStyles({
     maxWidth: 500,
     width: '90%',
     padding: '50px 5%',
-    marginBottom: 50
+    margin: '50px 0'
   },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    padding: '15px 50px',
+    textAlign: 'left'
+  }
 });
 
 function App() {
@@ -80,20 +87,22 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Card className={classes.card}>
-          <FormGroup>
-            <Typography>Filters</Typography>
-            <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
-            <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
-            <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
-          </FormGroup>
-        </Card>
-        <Map 
-          dataToShow={shownData}
-        />
-      </header>
+      <AppBar position="static" className={classes.appBar}>
+        <Typography variant="h6" className={classes.title}>
+          Desolate Country
+        </Typography>
+      </AppBar>
+      <Card className={classes.card}>
+        <FormGroup>
+          <Typography>Filters</Typography>
+          <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
+          <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
+          <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
+        </FormGroup>
+      </Card>
+      <Map 
+        dataToShow={shownData}
+      />
     </div>
   );
 }
