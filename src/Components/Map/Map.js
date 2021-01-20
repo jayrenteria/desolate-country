@@ -20,9 +20,10 @@ function Map({dataToShow}) {
                 defaultCenter={defaults.center}
                 defaultZoom={defaults.zoom}
             >
-                {dataToShow.map((institution) => {
+                {dataToShow.map((institution, index) => {
                     return(
                         <Marker
+                            key={`${institution}-${index}`}
                             lat={institution.latitude}
                             lng={institution.longitude}
                             text={institution.name_of_institution}
