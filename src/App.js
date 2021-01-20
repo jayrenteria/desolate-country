@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, FormGroup, Typography, AppBar } from '@material-ui/core';
-import logo from './logo.svg';
 import './App.css';
 import Filter from './Components/Filter';
 import RangeFilter from './Components/RangeFilter';
 import Map from './Components/Map/Map';
+import Footer from './Components/Footer/Footer';
 import { getData } from './utils/getData'
 
 const useStyles = makeStyles({
@@ -103,6 +103,7 @@ function App() {
       <Map 
         dataToShow={shownData}
       />
+      <Footer />
     </div>
   );
 }
