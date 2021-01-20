@@ -36,12 +36,14 @@ function Filter({
 
     return (
         <FormControl className={classes.root}>
-            <InputLabel>{label}</InputLabel>
+            <InputLabel id={label + '-label'}>{label}</InputLabel>
             <Select
                 multiple
                 value={selected ?? []}
                 onChange={handleChangeMultiple}
                 input={<Input/>}
+                labelId={label + '-label'}
+                id={label}
                 renderValue={(selected) => (
                     <div className={classes.chips}>
                     {selected.map((value) => (

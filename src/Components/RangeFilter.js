@@ -32,12 +32,13 @@ export default function RangeFilter({
 
   return (
     <div className={classes.root}>
-        <InputLabel>{label}</InputLabel>
+        <InputLabel id={label + '-label'}>{label}</InputLabel>
         <Slider
             value={value}
             onChange={handleChange}
             valueLabelDisplay="on"
-            aria-labelledby="range-slider"
+            aria-labelledby={label + '-label'}
+            id={label}
             getAriaValueText={valuetext}
             min={min}
             max={max}
