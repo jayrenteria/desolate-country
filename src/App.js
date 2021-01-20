@@ -1,10 +1,21 @@
 import { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Card, FormGroup, Typography } from '@material-ui/core';
 import logo from './logo.svg';
 import './App.css';
 import Filter from './Components/Filter';
 import RangeFilter from './Components/RangeFilter';
 import Map from './Components/Map/Map';
 import { getData } from './utils/getData'
+
+const useStyles = makeStyles({
+  card: {
+    maxWidth: 500,
+    width: '90%',
+    padding: '50px 5%',
+    marginBottom: 50
+  },
+});
 
 function App() {
 
@@ -64,14 +75,21 @@ function App() {
     return items
   }
 
+  const classes = useStyles();
+
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
-        <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
-        <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
+        <Card className={classes.card}>
+          <FormGroup>
+            <Typography>Filters</Typography>
+            <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
+            <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
+            <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
+          </FormGroup>
+        </Card>
         <Map 
           dataToShow={shownData}
         />

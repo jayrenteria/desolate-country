@@ -1,9 +1,24 @@
+import { makeStyles } from '@material-ui/core/styles';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Chip from '@material-ui/core/Chip';
+
+const useStyles = makeStyles({
+    root: {
+      marginBottom: 15,
+      width: '100%'
+    },
+    chips: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+      chip: {
+      margin: 2,
+    },
+  });
 
 function Filter({
     items,
@@ -17,8 +32,10 @@ function Filter({
         setSelected(value);
     };
 
+    const classes = useStyles();
+
     return (
-        <FormControl>
+        <FormControl className={classes.root}>
             <InputLabel>{label}</InputLabel>
             <Select
                 multiple
@@ -26,9 +43,9 @@ function Filter({
                 onChange={handleChangeMultiple}
                 input={<Input/>}
                 renderValue={(selected) => (
-                    <div>
+                    <div className={classes.chips}>
                     {selected.map((value) => (
-                        <Chip key={value} label={value}/>
+                        <Chip key={value} label={value} className={classes.chip}/>
                     ))}
                     </div>
                 )}
