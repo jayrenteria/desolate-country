@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
 import Marker from '../Marker/Marker';
