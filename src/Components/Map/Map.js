@@ -16,7 +16,6 @@ function Map({dataToShow}) {
     let data = {}
     for (let i = 0; i < dataToShow.length; i++) {
         const item = dataToShow[i];
-        console.log(item)
         if ( !data[`${item.latitude}-${item.longitude}-${item.name}`]) {
             data[`${item.latitude}-${item.longitude}-${item.name}`] = {
                 name_of_institution: item.name_of_institution,
