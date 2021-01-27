@@ -6,10 +6,10 @@ function Footer() {
 
     return (
         <footer>
-            <div class="footer-container">
-                <div class="left"></div>
-                <div class="center"></div>
-                <div class="right">&copy; {(new Date().getFullYear())} Jack Downey and Kathleen Holscher</div>
+            <div className="footer-container">
+                <div className="left"></div>
+                <div className="center"></div>
+                <div className="right">&copy; {(new Date().getFullYear())} Jack Downey and Kathleen Holscher</div>
             </div>
         </footer>
     )
