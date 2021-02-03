@@ -1,9 +1,28 @@
 .info-window {
     background: white;
-    width: auto;
+    width: 400px;
     position: absolute;
-    color: black;
     padding: 20px;
     bottom: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
+    z-index: 99999999;
+    border-radius: 5px;
+    color: black;
+}
+
+.info-window .content {
+    margin-left: 20px;
+    float: left;
+    text-align: left;
+    font-size: 1.3em;
+}
+
+.info-window .content td, .info-window .content th {
+    padding-right: 15px;
+    text-align: center;
+}
+
+.close-icon {
+    width: 20px;
+    float: right;
 }

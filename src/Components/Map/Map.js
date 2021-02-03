@@ -16,10 +16,9 @@ function Map({dataToShow}) {
     let data = {}
     for (let i = 0; i < dataToShow.length; i++) {
         const item = dataToShow[i];
-        if ( !data[`${item.latitude}-${item.longitude}-${item.name}`]) {
-            data[`${item.latitude}-${item.longitude}-${item.name}`] = {
+        if ( !data[`${item.latitude}-${item.longitude}`]) {
+            data[`${item.latitude}-${item.longitude}`] = {
                 name_of_institution: item.name_of_institution,
-                name: item.name,
                 latitude: item.latitude,
                 longitude: item.longitude,
                 institution_type: item.institution_type,
@@ -28,9 +27,9 @@ function Map({dataToShow}) {
                 years: [item]
             }
         }
-        data[`${item.latitude}-${item.longitude}-${item.name}`].years.push(item)
-        if (!data[`${item.latitude}-${item.longitude}-${item.name}`].abuse_claim && item.abuse_claim) {
-            data[`${item.latitude}-${item.longitude}-${item.name}`].abuse_claim = true;
+        data[`${item.latitude}-${item.longitude}`].years.push(item)
+        if (!data[`${item.latitude}-${item.longitude}`].abuse_claim && item.abuse_claim) {
+            data[`${item.latitude}-${item.longitude}`].abuse_claim = true;
         }
     }
 
