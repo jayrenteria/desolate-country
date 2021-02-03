@@ -8,22 +8,26 @@ import './styles.css';
 function Marker ({ institution }) {
     const [showInfo, setShowInfo] = useState(false);
 
-    return (
+    const closeWindow = () => {
+        setShowInfo(false);
+    }
+
+    return [
       <div className={'marker'} onClick={() => setShowInfo(!showInfo)}>
         {institution.institution_type.includes('School') ? 
             <School color={institution.abuse_claim ? 'secondary' : ''}/>
         :
             <Business color={institution.abuse_claim ? 'secondary' : ''} />
         }
-          {showInfo ? 
-              <InfoWindow
-                  institution={institution}
-              />  
-          :    
-              null 
-          }
-      </div>
-    )
+      </div>,
+      showInfo ? 
+        <InfoWindow
+            institution={institution}
+            closeWindow={closeWindow}
+        />  
+      :    
+        null 
+    ]
 };
 
 export default Marker;
