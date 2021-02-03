@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import classnames from 'classnames';
+import {School, Business} from '@material-ui/icons';
 
 import InfoWindow from '../InfoWindow/InfoWindow';
 
@@ -12,13 +12,14 @@ function Marker ({ institution }) {
         setShowInfo(false);
     }
 
-    // setup classes
-    const markerClasses = classnames({
-        'marker': true,
-        'abuse': institution.abuse_claim
-    })
     return [
-      <div className={markerClasses} onClick={() => setShowInfo(!showInfo)}></div>,
+      <div className={'marker'} onClick={() => setShowInfo(!showInfo)}>
+        {institution.institution_type.includes('School') ? 
+            <School color={institution.abuse_claim ? 'secondary' : ''}/>
+        :
+            <Business color={institution.abuse_claim ? 'secondary' : ''} />
+        }
+      </div>,
       showInfo ? 
         <InfoWindow
             institution={institution}
