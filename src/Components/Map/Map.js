@@ -24,7 +24,7 @@ function Map({dataToShow}) {
                 institution_type: item.institution_type,
                 native_serving_mission: item.native_serving_mission,
                 abuse_claim: item.native_serving_mission,
-                years: [item]
+                years: []
             }
         }
         data[`${item.latitude}-${item.longitude}`].years.push(item)
