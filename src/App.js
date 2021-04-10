@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Typography } from '@material-ui/core';
 import './App.css';
 import FormFilter from './Components/FormFilter/FormFilter';
 import InstitutionDetails from './Components/InstitutionDetails/InstitutionDetails';
 import Map from './Components/Map/Map';
+import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import { getData } from './utils/getData'
 
@@ -108,11 +108,7 @@ function App() {
 
   return (
     <div className="App">
-      <AppBar position="static" className={classes.appBar}>
-        <Typography variant="h6" className={classes.title}>
-          Desolate Country
-        </Typography>
-      </AppBar>
+      <Header/>
       <div className="map-container">
         <div className="form-container">
           <FormFilter
