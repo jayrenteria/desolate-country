@@ -53,7 +53,7 @@ function Filter({
                 )}
                 >
                 {items.map((item, index) => (
-                    <MenuItem key={item+index} value={item}>
+                    <MenuItem key={`${item}-${index}`} value={item}>
                     {item}
                     </MenuItem>
                 ))}

@@ -1,0 +1,24 @@
+.header {
+    box-shadow: 0 1px 6px #999;
+    padding-bottom: 15px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.header .main-header {
+    margin-bottom: 0;
+    font-size: 3.8rem;
+    font-weight: 500;
+}
+
+.header .sub-header {
+    margin-top: 0;
+    font-weight: normal;
+    margin-bottom: 50px;
+    font-size: 1.5rem;
+}
+
+.header p {
+    margin: 0 0 5px;
+}
