@@ -24,3 +24,11 @@
   overflow-y: scroll;
   max-height: 700px;
 }
+
+.details-container ol {
+  text-align: left;
+}
+
+.details-container ol li {
+  margin-bottom: 12px;
+}

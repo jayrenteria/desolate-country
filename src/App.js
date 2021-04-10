@@ -134,8 +134,11 @@ function App() {
           ) : (
             <>
               <h2>Map Instructions</h2>
-              <p>You may start by filtering this data by the names of the offenders, the institutions, and the range of years you would like to see.</p>
-              <p>Then, you can click on a hotspot/institution icon to get more information about that particular place. Those details will show up here.</p>
+              <ol>
+                <li>Start by filtering this data by the names of the offenders, the institutions, and the range of years you would like to see.</li>
+                <li>Then, click on a hotspot/institution icon to get more information about that particular place.</li>
+                <li>Those details will show up here!</li>
+              </ol>
             </>
           )}
         </div>
