@@ -23,6 +23,7 @@ function App() {
   const [fullData, setFullData] = useState([]);
   const [shownData, setShownData] = useState([]);
   const [sortValues, setSortValues] = useState({});
+  const [stats, setStats] = useState({claims: 0, individualCount: 0, claimsAtNativeInstitutions: 0});
   const [names, setNames] = useState([]);
   const [names_of_institutions, setNamesOfInstitutions] = useState([]);
   const [years, setYears] = useState([]);
@@ -45,7 +46,32 @@ function App() {
       return nameMatches && institutionMatches && yearMatches;
     })
     setShownData(newValues);
+    calculateStats(newValues)
   }, [sortValues, fullData]);
+
+  const calculateStats = (values) => {
+    let individuals = [];
+    let individualCount = 0;
+    let claims = 0;
+    let claimsAtNativeInstitutions = 0;
+    values.forEach(value => {
+      if(value.abuse_claim) {
+        claims++;
+        if(value.native_serving_mission) {
+          claimsAtNativeInstitutions++;
+        }
+      }
+      if (individuals.indexOf(value.name) === -1) {
+        individualCount++;
+        individuals.push(value.name)
+      }
+    })
+    setStats({
+      claims,
+      individualCount,
+      claimsAtNativeInstitutions
+    })
+  }
 
   const checkForMatch = (sortValues, key, data) => {
     if ( sortValues[key]?.length ) {
@@ -93,6 +119,7 @@ function App() {
             names={names}
             names_of_institutions={names_of_institutions}
             sortValues={sortValues}
+            stats={stats}
             updateSort={updateSort}
             years={years}
           />

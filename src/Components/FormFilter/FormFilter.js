@@ -9,6 +9,7 @@ function FormFilter({
     names,
     names_of_institutions,
     sortValues,
+    stats,
     updateSort,
     years
 }) {
@@ -21,6 +22,11 @@ function FormFilter({
                 <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
                 <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
             </FormGroup>
+            <div className="stats">
+                <p>{stats.claims} Abuse Claims</p>
+                <p>{stats.individualCount} Individuals</p>
+                <p>{stats.claimsAtNativeInstitutions} Claims at Native Institutions</p>
+            </div>
         </div>
     )
 };

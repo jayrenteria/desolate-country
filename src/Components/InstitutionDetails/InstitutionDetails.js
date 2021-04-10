@@ -16,7 +16,7 @@ function InstitutionDetails({ institution }) {
                         <th>Abuse Claim</th>
                     </tr>
                 {institution.years.map(year => 
-                    <tr>
+                    <tr key={`${institution.name_of_institution}-${year.year}-${year.name}`}>
                         <td>{year.name}</td>
                         <td>{year.year}</td>
                         <td>{
