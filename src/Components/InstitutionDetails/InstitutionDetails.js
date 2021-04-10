@@ -7,9 +7,8 @@ function InstitutionDetails({ institution, closeWindow }) {
 
     return (
         <div className="info-window">
-            <Icon className='close-icon' onClick={closeWindow}>close</Icon>
             <div className='content'>
-                <h2>{institution.name_of_institution}</h2>
+                <h3>{institution.name_of_institution}</h3>
                 <table>
                     <tr>
                         <th>Name</th>
