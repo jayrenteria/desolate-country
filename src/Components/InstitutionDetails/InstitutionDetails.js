@@ -1,5 +1,12 @@
 import React from 'react';
-import Icon from '@material-ui/core/Icon';
+import { Icon, 
+    Table, 
+    TableCell, 
+    TableBody, 
+    TableRow, 
+    TableHead, 
+    TableContainer, 
+    Paper } from '@material-ui/core';
 
 import './styles.css';
 
@@ -9,23 +16,30 @@ function InstitutionDetails({ institution, closeWindow }) {
         <div className="info-window">
             <div className='content'>
                 <h3>{institution.name_of_institution}</h3>
-                <table>
-                    <tr>
-                        <th>Name</th>
-                        <th>Academic Year</th>
-                        <th>Abuse Claim</th>
-                    </tr>
-                {institution.years.map(year => 
-                    <tr>
-                        <td>{year.name}</td>
-                        <td>{year.year}</td>
-                        <td>{
-                            year.abuse_claim? 
-                                <Icon color="secondary">warning</Icon>:
-                                <Icon color="primary">close</Icon>}</td>
-                    </tr>
-                )}
-                </table>
+                <TableContainer component={Paper}>
+                    <Table aria-label="table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Name</TableCell>
+                                <TableCell>Academic Year</TableCell>
+                                <TableCell>Abuse Claim</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                        {institution.years.map(year => (
+                            <TableRow key={year.name}>
+                                <TableCell component="th" scope="row">
+                                    {year.name}
+                                </TableCell>
+                                <TableCell>{year.year}</TableCell>
+                                <TableCell>{year.abuse_claim? 
+                                    <Icon color="secondary">warning</Icon>:
+                                    <Icon color="primary">close</Icon>}</TableCell>
+                            </TableRow>
+                        ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </div>
         </div>
     )
