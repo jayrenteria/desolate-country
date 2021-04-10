@@ -10,11 +10,14 @@
 }
 
 .stat-number {
-    font-weight: bold;
-    font-size: 26px;
+    font-weight: 400;
+    font-size: 58px;
+    text-align: center;
+    flex: 1;
 }
 
 .stat-label {
-    font-size: 20px;
+    flex: 2;
+    font-size: 24px;
     text-align: center;
 }
