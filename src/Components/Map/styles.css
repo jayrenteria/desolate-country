@@ -1,0 +1,6 @@
+.toggle-heatmap {
+    position: absolute !important;
+    z-index: 9;
+    left: 30px;
+    top: 30px;
+}
