@@ -9,3 +9,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.map-container {
+  display: flex;
+  width: 100%;
+}
+
+.map-container .form-container, .map-container .details-container {
+  min-width: 300px;
+  padding: 50px;
+  background: white;
+  max-width: 25%;
+  color: black;
+}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, FormGroup, Typography, AppBar } from '@material-ui/core';
+import { FormGroup, Typography, AppBar } from '@material-ui/core';
 import './App.css';
 import Filter from './Components/Filter';
 import RangeFilter from './Components/RangeFilter';
@@ -9,12 +9,6 @@ import Footer from './Components/Footer/Footer';
 import { getData } from './utils/getData'
 
 const useStyles = makeStyles({
-  card: {
-    maxWidth: 500,
-    width: '90%',
-    padding: '50px 5%',
-    margin: '50px 0'
-  },
   title: {
     flexGrow: 1,
   },
@@ -92,17 +86,22 @@ function App() {
           Desolate Country
         </Typography>
       </AppBar>
-      <Card className={classes.card}>
-        <FormGroup>
-          <Typography>Filters</Typography>
-          <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
-          <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
-          <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
-        </FormGroup>
-      </Card>
-      <Map 
-        dataToShow={shownData}
-      />
+      <div className="map-container">
+        <div className="form-container">
+          <FormGroup>
+            <Typography>Filters</Typography>
+            <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
+            <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
+            <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
+          </FormGroup>
+        </div>
+        <Map 
+          dataToShow={shownData}
+        />
+        <div className="details-container">
+          <p>Test</p>
+        </div>
+      </div>
       <Footer />
     </div>
   );
