@@ -57,6 +57,10 @@ function Map({dataToShow, setInstitution}) {
         heatMapData.positions.push({ lat:item.latitude, lng: item.longitude });
     }
 
+    const mapChangeHandler = mapSettings => {
+        console.log(`Zoom level: ${mapSettings.zoom}`)
+    }
+
     return(
         <div style={{width: '100%', height: '800px', position: 'relative'}}>
             <Button className="toggle-heatmap" variant="contained" color="primary" onClick={() => toggleHeatMap()}>Heatmap</Button>
@@ -67,6 +71,7 @@ function Map({dataToShow, setInstitution}) {
                 defaultZoom={defaults.zoom}
                 heatmapLibrary={true}          
                 heatmap={heatMapData}
+                onChange={mapChangeHandler}
             >
                 {Object.values(data).map(item => {
                     return(

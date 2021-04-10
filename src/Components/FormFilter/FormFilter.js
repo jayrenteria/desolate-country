@@ -25,7 +25,7 @@ function FormFilter({
             <div className="stats">
                 <div className="stat-group">
                     <span className="stat-number">{stats.claims}</span>
-                    <span className="stat-label">Abuse Claims</span>
+                    <span className="stat-label">Abuse<br/>Claims</span>
                 </div>
                 <div className="stat-group">
                     <span className="stat-number">{stats.individualCount}</span> 
@@ -33,7 +33,7 @@ function FormFilter({
                 </div>
                 <div className="stat-group">
                     <span className="stat-number">{stats.claimsAtNativeInstitutions}</span> 
-                    <span className="stat-label">Claims at Native Institutions</span>
+                    <span className="stat-label">Claims at<br/>Native Institutions</span>
                 </div>
             </div>
         </div>
