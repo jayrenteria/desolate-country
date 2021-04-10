@@ -132,7 +132,11 @@ function App() {
           {institution ? (
             <InstitutionDetails institution={institution} />
           ) : (
-            <p>Click on an icon for details</p>
+            <>
+              <h2>Map Instructions</h2>
+              <p>You may start by filtering this data by the names of the offenders, the institutions, and the range of years you would like to see.</p>
+              <p>Then, you can click on a hotspot/institution icon to get more information about that particular place. Those details will show up here.</p>
+            </>
           )}
         </div>
       </div>
