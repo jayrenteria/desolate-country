@@ -33,12 +33,17 @@ function Map({dataToShow, setInstitution}) {
         }
     }
 
+    const mapChangeHandler = mapSettings => {
+        console.log(`Zoom level: ${mapSettings.zoom}`)
+    }
+
     return(
         <div style={{width: '100%', height: '800px'}}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: '' }}
                 defaultCenter={defaults.center}
                 defaultZoom={defaults.zoom}
+                onChange={mapChangeHandler}
             >
                 {Object.values(data).map(item => {
                     return(
