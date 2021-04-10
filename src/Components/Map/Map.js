@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 
 import Marker from '../Marker/Marker';
 
-function Map({dataToShow}) {
+function Map({dataToShow, setInstitution}) {
     // US default center/zoom
     const defaults = {
         center: {
@@ -48,6 +48,7 @@ function Map({dataToShow}) {
                             lng={item.longitude}
                             text={item.name_of_institution}
                             institution={item}
+                            setInstitution={setInstitution}
                         />
                     )
                 })}

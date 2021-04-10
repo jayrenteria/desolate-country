@@ -3,7 +3,7 @@ import Icon from '@material-ui/core/Icon';
 
 import './styles.css';
 
-function InfoWindow({ institution, closeWindow }) {
+function InstitutionDetails({ institution, closeWindow }) {
 
     return (
         <div className="info-window">
@@ -32,4 +32,4 @@ function InfoWindow({ institution, closeWindow }) {
     )
 };
 
-export default InfoWindow;
+export default InstitutionDetails;

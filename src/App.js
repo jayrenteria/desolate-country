@@ -4,6 +4,7 @@ import { FormGroup, Typography, AppBar } from '@material-ui/core';
 import './App.css';
 import Filter from './Components/Filter';
 import RangeFilter from './Components/RangeFilter';
+import InstitutionDetails from './Components/InstitutionDetails/InstitutionDetails';
 import Map from './Components/Map/Map';
 import Footer from './Components/Footer/Footer';
 import { getData } from './utils/getData'
@@ -26,6 +27,7 @@ function App() {
   const [names, setNames] = useState([]);
   const [names_of_institutions, setNamesOfInstitutions] = useState([]);
   const [years, setYears] = useState([]);
+  const [institution, setInstitution] = useState(null);
 
   useEffect(() => {
     const data = getData();
@@ -97,9 +99,16 @@ function App() {
         </div>
         <Map 
           dataToShow={shownData}
+          setInstitution={setInstitution}
         />
         <div className="details-container">
-          <p>Test</p>
+          {
+            institution
+              ? 
+                <InstitutionDetails institution={institution} />
+              :
+                <p>Click on an icon for details</p>
+          }
         </div>
       </div>
       <Footer />
