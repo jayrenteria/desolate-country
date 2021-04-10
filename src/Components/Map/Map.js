@@ -23,7 +23,7 @@ function Map({dataToShow, setInstitution}) {
                 longitude: item.longitude,
                 institution_type: item.institution_type,
                 native_serving_mission: item.native_serving_mission,
-                abuse_claim: item.native_serving_mission,
+                abuse_claim: item.abuse_claim,
                 years: []
             }
         }

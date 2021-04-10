@@ -10,7 +10,7 @@ import { Icon,
 
 import './styles.css';
 
-function InstitutionDetails({ institution, closeWindow }) {
+function InstitutionDetails({ institution }) {
 
     return (
         <div className="info-window">

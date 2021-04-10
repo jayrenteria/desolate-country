@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { FormGroup, Typography, AppBar } from '@material-ui/core';
+import { AppBar, Typography } from '@material-ui/core';
 import './App.css';
-import Filter from './Components/Filter';
-import RangeFilter from './Components/RangeFilter';
+import FormFilter from './Components/FormFilter/FormFilter';
 import InstitutionDetails from './Components/InstitutionDetails/InstitutionDetails';
 import Map from './Components/Map/Map';
 import Footer from './Components/Footer/Footer';
@@ -90,12 +89,13 @@ function App() {
       </AppBar>
       <div className="map-container">
         <div className="form-container">
-          <FormGroup>
-            <Typography>Filters</Typography>
-            <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
-            <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
-            <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
-          </FormGroup>
+          <FormFilter
+            names={names}
+            names_of_institutions={names_of_institutions}
+            sortValues={sortValues}
+            updateSort={updateSort}
+            years={years}
+          />
         </div>
         <Map 
           dataToShow={shownData}
