@@ -54,7 +54,11 @@ function Map({dataToShow, setInstitution}) {
         if (!data[`${item.latitude}-${item.longitude}`].abuse_claim && item.abuse_claim) {
             data[`${item.latitude}-${item.longitude}`].abuse_claim = true;
         }
-        heatMapData.positions.push({ lat:item.latitude, lng: item.longitude });
+
+        if (item.abuse_claim) {
+            heatMapData.positions.push({ lat:item.latitude, lng: item.longitude });
+        }
+        
     }
 
     const mapChangeHandler = mapSettings => {
