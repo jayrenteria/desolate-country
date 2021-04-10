@@ -8,7 +8,7 @@ import Marker from '../Marker/Marker';
 import './styles.css';
 
 function Map({dataToShow, setInstitution}) {
-    const [heatMapVisible, setHeatMapVisible] = useState();
+    const [heatMapVisible, setHeatMapVisible] = useState(true);
     const mapEl = useRef(null);
     // US default center/zoom
     const defaults = {
@@ -24,7 +24,7 @@ function Map({dataToShow, setInstitution}) {
         setHeatMapVisible(!heatMapVisible);
         if (mapEl !== undefined) {
             console.log(mapEl.current.heatmap)   
-            mapEl.current.heatmap.setMap(heatMapVisible ?
+            mapEl.current.heatmap.setMap(!heatMapVisible ?
                 mapEl.current.map_ : null)      
         }
     }
@@ -63,7 +63,7 @@ function Map({dataToShow, setInstitution}) {
 
     return(
         <div style={{width: '100%', height: '800px', position: 'relative'}}>
-            <Button className="toggle-heatmap" variant="contained" color="primary" onClick={() => toggleHeatMap()}>Heatmap</Button>
+            <Button className="toggle-heatmap" variant="contained" color="primary" onClick={() => toggleHeatMap()}>{heatMapVisible ? "Icons" : "Heatmap"}</Button>
             <GoogleMapReact
                 ref={mapEl}
                 bootstrapURLKeys={{ key: '' }}
@@ -82,6 +82,7 @@ function Map({dataToShow, setInstitution}) {
                             text={item.name_of_institution}
                             institution={item}
                             setInstitution={setInstitution}
+                            transparentIcon={heatMapVisible}
                         />
                     )
                 })}
