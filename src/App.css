@@ -22,3 +22,8 @@
   max-width: 25%;
   color: black;
 }
+
+.details-container {
+  overflow: scroll;
+  max-height: 700px;
+}

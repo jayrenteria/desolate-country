@@ -3,6 +3,10 @@
     font-size: 1rem;
 }
 
+.info-window .content h3 {
+    text-align: center;
+}
+
 .info-window .content td, .info-window .content th {
     padding-right: 15px;
     text-align: center;
