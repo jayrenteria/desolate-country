@@ -23,9 +23,18 @@ function FormFilter({
                 <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} items={years}/>
             </FormGroup>
             <div className="stats">
-                <p>{stats.claims} Abuse Claims</p>
-                <p>{stats.individualCount} Individuals</p>
-                <p>{stats.claimsAtNativeInstitutions} Claims at Native Institutions</p>
+                <div className="stat-group">
+                    <span className="stat-number">{stats.claims}</span>
+                    <span className="stat-label">Abuse Claims</span>
+                </div>
+                <div className="stat-group">
+                    <span className="stat-number">{stats.individualCount}</span> 
+                    <span className="stat-label">Individuals</span>
+                </div>
+                <div className="stat-group">
+                    <span className="stat-number">{stats.claimsAtNativeInstitutions}</span> 
+                    <span className="stat-label">Claims at Native Institutions</span>
+                </div>
             </div>
         </div>
     )
