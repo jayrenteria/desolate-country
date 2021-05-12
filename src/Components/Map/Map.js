@@ -9,6 +9,7 @@ import './styles.css';
 
 function Map({dataToShow, setInstitution}) {
     const [heatMapVisible, setHeatMapVisible] = useState(true);
+    const [iconsVisible, setIconsVisible] = useState(true);
     const mapEl = useRef(null);
     // US default center/zoom
     const defaults = {
@@ -27,6 +28,10 @@ function Map({dataToShow, setInstitution}) {
             mapEl.current.heatmap.setMap(!heatMapVisible ?
                 mapEl.current.map_ : null)      
         }
+    }
+
+    const toggleIcons = () => {
+        setIconsVisible(!iconsVisible);
     }
 
     let data = {}
@@ -67,7 +72,8 @@ function Map({dataToShow, setInstitution}) {
 
     return(
         <div style={{width: '100%', height: '800px', position: 'relative'}}>
-            <Button className="toggle-heatmap" variant="contained" color="primary" onClick={() => toggleHeatMap()}>{heatMapVisible ? "Icons" : "Heatmap"}</Button>
+            <Button className="toggle-heatmap" variant="contained" color={heatMapVisible ? 'secondary' : 'primary' } onClick={() => toggleHeatMap()}>Heatmap</Button>
+            <Button className="toggle-icons" variant="contained" color={iconsVisible ? 'secondary' : 'primary' } onClick={() => toggleIcons()}>Icons</Button>
             <GoogleMapReact
                 ref={mapEl}
                 bootstrapURLKeys={{ key: '' }}
@@ -86,7 +92,7 @@ function Map({dataToShow, setInstitution}) {
                             text={item.name_of_institution}
                             institution={item}
                             setInstitution={setInstitution}
-                            transparentIcon={heatMapVisible}
+                            transparentIcon={!iconsVisible}
                         />
                     )
                 })}
