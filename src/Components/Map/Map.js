@@ -3,6 +3,7 @@ import React, {useState, useRef} from 'react';
 import GoogleMapReact from 'google-map-react';
 import Button from '@material-ui/core/Button';
 
+import geoData from '../../data/BIA_National_LAR_geo.json';
 import Marker from '../Marker/Marker';
 
 import './styles.css';
@@ -19,6 +20,26 @@ function Map({dataToShow, setInstitution}) {
         },
         zoom: 5
     }
+
+    const handleApiLoaded = (map, maps) => {
+
+        console.log(map);
+        console.log(maps);
+        console.log(mapEl);
+        console.log(geoData);
+        
+        if (mapEl !== undefined) {
+            mapEl.current = map;
+            // add geo json is for direct files not urls
+            mapEl.current.data.addGeoJson(
+                geoData
+            )
+            mapEl.current.data.setStyle({
+                fillColor: "green",
+                strokeWeight: 1
+            });
+        }
+      };
 
     const toggleHeatMap = () => {
         
@@ -82,6 +103,8 @@ function Map({dataToShow, setInstitution}) {
                 heatmapLibrary={true}          
                 heatmap={heatMapData}
                 onChange={mapChangeHandler}
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
             >
                 {Object.values(data).map(item => {
                     return(
