@@ -4,7 +4,6 @@ import {School, Business} from '@material-ui/icons';
 import './styles.css';
 
 function Marker ({ institution, setInstitution, transparentIcon }) {
-  console.log(transparentIcon)
     return (
       <div className={'marker'} onClick={() => setInstitution(institution)}>
         {transparentIcon

@@ -1,5 +1,5 @@
 /* global google */
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import GoogleMapReact from 'google-map-react';
 import Button from '@material-ui/core/Button';
 
@@ -8,9 +8,19 @@ import Marker from '../Marker/Marker';
 
 import './styles.css';
 
+const defaultHeatmap = {   
+    positions: [],
+    options: {   
+        radius: 40,   
+        opacity: 0.6,
+    }
+};
+
 function Map({dataToShow, setInstitution}) {
     const [heatMapVisible, setHeatMapVisible] = useState(true);
     const [iconsVisible, setIconsVisible] = useState(true);
+    const [heatMapData, setHeatmapData] = useState(defaultHeatmap);
+    const [mapData, setMapData] = useState({})
     const mapEl = useRef(null);
     // US default center/zoom
     const defaults = {
@@ -21,13 +31,7 @@ function Map({dataToShow, setInstitution}) {
         zoom: 5
     }
 
-    const handleApiLoaded = (map, maps) => {
-
-        console.log(map);
-        console.log(maps);
-        console.log(mapEl);
-        console.log(geoData);
-        
+    const handleApiLoaded = (map, maps) => {        
         if (mapEl !== undefined) {
             mapEl.current = map;
             // add geo json is for direct files not urls
@@ -42,50 +46,44 @@ function Map({dataToShow, setInstitution}) {
       };
 
     const toggleHeatMap = () => {
-        
         setHeatMapVisible(!heatMapVisible);
-        if (mapEl !== undefined) {
-            console.log(mapEl.current.heatmap)   
-            mapEl.current.heatmap.setMap(!heatMapVisible ?
-                mapEl.current.map_ : null)      
-        }
     }
 
     const toggleIcons = () => {
         setIconsVisible(!iconsVisible);
     }
 
-    let data = {}
-    let heatMapData = {   
-        positions: [],
-        options: {   
-            radius: 40,   
-            opacity: 0.6,
-        }
-    }
-    for (let i = 0; i < dataToShow.length; i++) {
-        const item = dataToShow[i];
-        if ( !data[`${item.latitude}-${item.longitude}`]) {
-            data[`${item.latitude}-${item.longitude}`] = {
-                name_of_institution: item.name_of_institution,
-                latitude: item.latitude,
-                longitude: item.longitude,
-                institution_type: item.institution_type,
-                native_serving_mission: item.native_serving_mission,
-                abuse_claim: item.abuse_claim,
-                years: []
+    useEffect(() => {
+        let data = {}
+        let newHeatMapData = {
+            positions: [],
+            options: defaultHeatmap.options
+        };
+        for (let i = 0; i < dataToShow.length; i++) {
+            const item = dataToShow[i];
+            if ( !data[`${item.latitude}-${item.longitude}`]) {
+                data[`${item.latitude}-${item.longitude}`] = {
+                    name_of_institution: item.name_of_institution,
+                    latitude: item.latitude,
+                    longitude: item.longitude,
+                    institution_type: item.institution_type,
+                    native_serving_mission: item.native_serving_mission,
+                    abuse_claim: item.abuse_claim,
+                    years: []
+                }
+            }
+            data[`${item.latitude}-${item.longitude}`].years.push(item)
+            if (!data[`${item.latitude}-${item.longitude}`].abuse_claim && item.abuse_claim) {
+                data[`${item.latitude}-${item.longitude}`].abuse_claim = true;
+            }
+
+            if (item.abuse_claim) {
+                newHeatMapData.positions.push({ lat:item.latitude, lng: item.longitude });
             }
         }
-        data[`${item.latitude}-${item.longitude}`].years.push(item)
-        if (!data[`${item.latitude}-${item.longitude}`].abuse_claim && item.abuse_claim) {
-            data[`${item.latitude}-${item.longitude}`].abuse_claim = true;
-        }
-
-        if (item.abuse_claim) {
-            heatMapData.positions.push({ lat:item.latitude, lng: item.longitude });
-        }
-        
-    }
+        setHeatmapData(newHeatMapData)
+        setMapData(data);
+    }, [dataToShow.length])
 
     const mapChangeHandler = mapSettings => {
         console.log(`Zoom level: ${mapSettings.zoom}`)
@@ -101,12 +99,12 @@ function Map({dataToShow, setInstitution}) {
                 defaultCenter={defaults.center}
                 defaultZoom={defaults.zoom}
                 heatmapLibrary={true}          
-                heatmap={heatMapData}
+                heatmap={heatMapVisible ? heatMapData : defaultHeatmap}
                 onChange={mapChangeHandler}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
             >
-                {Object.values(data).map(item => {
+                {Object.values(mapData).map(item => {
                     return(
                         <Marker
                             key={`${item.name_of_institution}-${item.name}`}
