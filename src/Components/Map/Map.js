@@ -104,10 +104,10 @@ function Map({dataToShow, setInstitution}) {
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
             >
-                {Object.values(mapData).map(item => {
+                {Object.values(mapData).map((item, index) => {
                     return(
                         <Marker
-                            key={`${item.name_of_institution}-${item.name}`}
+                            key={`${item.name_of_institution}-${item.name}-${index}`}
                             lat={item.latitude}
                             lng={item.longitude}
                             text={item.name_of_institution}

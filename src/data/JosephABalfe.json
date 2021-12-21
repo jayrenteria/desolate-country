@@ -1,0 +1,482 @@
+[
+    {
+        "name": "Joseph A Balfe",
+        "year": "1921-1922",
+        "name_of_institution": "Gonzaga Prep",
+        "latitude": 47.685314,
+        "longitude": -117.391339,
+        "institution_type": "High School",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1922-1923",
+        "name_of_institution": "Gonzaga Prep",
+        "latitude": 47.685314,
+        "longitude": -117.391339,
+        "institution_type": "High School",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1923-1924",
+        "name_of_institution": "Gonzaga Prep",
+        "latitude": 47.685314,
+        "longitude": -117.391339,
+        "institution_type": "High School",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1924-1925",
+        "name_of_institution": "Woodstock College",
+        "latitude": 39.336087,
+        "longitude": -76.871314,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1925-1926",
+        "name_of_institution": "Woodstock College",
+        "latitude": 39.336087,
+        "longitude": -76.871314,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1926-1927",
+        "name_of_institution": "Woodstock College",
+        "latitude": 39.336087,
+        "longitude": -76.871314,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1927-1928",
+        "name_of_institution": "Woodstock College",
+        "latitude": 39.336087,
+        "longitude": -76.871314,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1928-1929",
+        "name_of_institution": "Manresa Hall",
+        "latitude": 48.10448,
+        "longitude": -122.789911,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1929-1930",
+        "name_of_institution": "Manresa Hall",
+        "latitude": 48.10448,
+        "longitude": -122.789911,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1930-1931",
+        "name_of_institution": "Manresa Hall",
+        "latitude": 48.10448,
+        "longitude": -122.789911,
+        "institution_type": "Seminary",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1931-1932",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1932-1933",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1933-1934",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1934-1935",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1935-1936",
+        "name_of_institution": "St. Paul's Mission",
+        "latitude": 47.976658,
+        "longitude": -108.673427,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1936-1937",
+        "name_of_institution": "St. Francis Xavier Church",
+        "latitude": 46.87488,
+        "longitude": -113.997778,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1937-1938",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1938-1939",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1939-1940",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1940-1941",
+        "name_of_institution": "St. Joseph's Church",
+        "latitude": 46.606336,
+        "longitude": -120.503569,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1941-1942",
+        "name_of_institution": "St. Joseph's Church",
+        "latitude": 46.606336,
+        "longitude": -120.503569,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1942-1943",
+        "name_of_institution": "St. Joseph's Church",
+        "latitude": 46.606336,
+        "longitude": -120.503569,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1943-1944",
+        "name_of_institution": "Immaculate Conception Church (Fairbanks)",
+        "latitude": 64.845241,
+        "longitude": -147.722049,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1944-1945",
+        "name_of_institution": "St. Francis Xavier Church",
+        "latitude": 46.87488,
+        "longitude": -113.997778,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1945-1946",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1946-1947",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1947-1948",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1948-1949",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1949-1950",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1950-1951",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1951-1952",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1952-1953",
+        "name_of_institution": "St. Ignatius Mission",
+        "latitude": 47.314633,
+        "longitude": -114.103025,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1953-1954",
+        "name_of_institution": "St. Jude's Church",
+        "latitude": 48.548879,
+        "longitude": -109.673216,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1954-1955",
+        "name_of_institution": "St. Jude's Church",
+        "latitude": 48.548879,
+        "longitude": -109.673216,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1955-1956",
+        "name_of_institution": "St. Jude's Church",
+        "latitude": 48.548879,
+        "longitude": -109.673216,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1956-1957",
+        "name_of_institution": "St. Jude's Church",
+        "latitude": 48.548879,
+        "longitude": -109.673216,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1957-1958",
+        "name_of_institution": "St. Aloysius Church",
+        "latitude": 47.668098,
+        "longitude": -117.405062,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1958-1959",
+        "name_of_institution": "Immaculate Conception Church",
+        "latitude": 47.609904,
+        "longitude": -122.308542,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1959-1960",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1960-1961",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1961-1962",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": true
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1962-1963",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1963-1964",
+        "name_of_institution": "St. Mary's Mission",
+        "latitude": 48.406467,
+        "longitude": -119.520167,
+        "institution_type": "Boarding School",
+        "native_serving_mission": true,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1964-1965",
+        "name_of_institution": "Seattle Prep",
+        "latitude": 47.641025,
+        "longitude": -122.317504,
+        "institution_type": "High School",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1965-1966",
+        "name_of_institution": "St. Joseph's Church (Seattle)",
+        "latitude": 47.626253,
+        "longitude": -122.308127,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1966-1967",
+        "name_of_institution": "St. Joseph's Church",
+        "latitude": 47.626253,
+        "longitude": -122.308127,
+        "institution_type": "Parish",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1967-1968",
+        "name_of_institution": "Mount Carmel Hospital (Colville)",
+        "latitude": 48.540725,
+        "longitude": -117.893116,
+        "institution_type": "Hospital",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    },
+    {
+        "name": "Joseph A Balfe",
+        "year": "1968-1969",
+        "name_of_institution": "Gonzaga University",
+        "latitude": 47.668174,
+        "longitude": -117.403041,
+        "institution_type": "Retirement",
+        "native_serving_mission": false,
+        "abuse_claim": false
+    }
+]

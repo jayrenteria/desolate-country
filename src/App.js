@@ -30,7 +30,6 @@ function App() {
   });
   const [names, setNames] = useState([]);
   const [names_of_institutions, setNamesOfInstitutions] = useState([]);
-  const [years, setYears] = useState([]);
   const [institution, setInstitution] = useState(null);
 
   useEffect(() => {
@@ -39,7 +38,6 @@ function App() {
     setShownData(data);
     setNames(getItems("name", data));
     setNamesOfInstitutions(getItems("name_of_institution", data));
-    setYears(getItems("year", data));
   }, []);
 
   useEffect(() => {
@@ -124,7 +122,6 @@ function App() {
             sortValues={sortValues}
             stats={stats}
             updateSort={updateSort}
-            years={years}
           />
         </div>
         <Map dataToShow={shownData} setInstitution={setInstitution} />

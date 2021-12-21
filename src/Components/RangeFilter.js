@@ -15,12 +15,11 @@ function valuetext(value) {
 }
 
 export default function RangeFilter({
-    items,
     setSelected,
     label
 }) {
-  const min = items.length ? parseInt(items[0].split('-')[0]) : 1900;
-  const max = items.length ? parseInt(items[items.length - 1].split('-')[1]): 2021;
+  let min = 1890;
+  let max = 2020;
 
   const classes = useStyles();
   const [value, setValue] = React.useState([min, max]);
