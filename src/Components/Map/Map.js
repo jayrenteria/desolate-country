@@ -95,7 +95,7 @@ function Map({dataToShow, setInstitution}) {
             <Button className="toggle-icons" variant="contained" color={iconsVisible ? 'secondary' : 'primary' } onClick={() => toggleIcons()}>Icons</Button>
             <GoogleMapReact
                 ref={mapEl}
-                bootstrapURLKeys={{ key: '' }}
+                bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
                 defaultCenter={defaults.center}
                 defaultZoom={defaults.zoom}
                 heatmapLibrary={true}          
