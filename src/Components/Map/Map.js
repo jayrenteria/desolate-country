@@ -25,8 +25,8 @@ function Map({dataToShow, setInstitution}) {
     // US default center/zoom
     const defaults = {
         center: {
-            lat: 37.6762908,
-            lng: -101.3426515
+            lat: 43.40757270455663,
+            lng: -116.27762044836426
         },
         zoom: 5
     }
