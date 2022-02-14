@@ -31,7 +31,6 @@ export default function RangeFilter({
 
   return (
     <div className={classes.root}>
-        <InputLabel id={label + '-label'}>{label}</InputLabel>
         <Slider
             value={value}
             onChange={handleChange}
@@ -42,6 +41,7 @@ export default function RangeFilter({
             min={min}
             max={max}
         />
+        <InputLabel id={label + '-label'}>{label}</InputLabel>
     </div>
   );
 }
