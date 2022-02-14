@@ -1,22 +1,18 @@
 import React from 'react';
-import {School, Business} from '@material-ui/icons';
 
 import './styles.css';
 
-function Marker ({ institution, setInstitution, transparentIcon }) {
-    return (
-      <div className={'marker'} onClick={() => setInstitution(institution)}>
-        {transparentIcon
-          ? 
-            <div className="clickable-area"/>
+function Marker ({ institution, setInstitution }) {
+  
+  return (
+    <div className='marker' onClick={() => setInstitution(institution)} style={{zIndex: institution.abuse_claims}}>
+      {institution.abuse_claims ? 
+            <div className='claim'>{institution.abuse_claims}</div>
           :
-            institution.institution_type.includes('School') ? 
-              <School color={institution.abuse_claim ? 'secondary' : ''}/>
-            :
-              <Business color={institution.abuse_claim ? 'secondary' : ''} />
-        }
-      </div> 
-    )
+            <div className='no-claim'/>
+      }
+    </div> 
+  )
 };
 
 export default Marker;
