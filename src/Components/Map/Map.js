@@ -27,7 +27,7 @@ function Map({dataToShow, setInstitution}) {
                 geoData
             )
             mapEl.current.data.setStyle({
-                fillColor: "green",
+                fillColor: "orange",
                 strokeWeight: 1
             });
         }
