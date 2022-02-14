@@ -5,6 +5,8 @@ import GoogleMapReact from 'google-map-react';
 import geoData from '../../data/BIA_National_LAR_geo.json';
 import Marker from '../Marker/Marker';
 
+import './styles.css';
+
 function Map({dataToShow, setInstitution}) {
     const [mapData, setMapData] = useState({})
     const mapEl = useRef(null);
@@ -53,18 +55,13 @@ function Map({dataToShow, setInstitution}) {
         setMapData(data);
     }, [dataToShow.length])
 
-    const mapChangeHandler = mapSettings => {
-        console.log(`Zoom level: ${mapSettings.zoom}`)
-    }
-
     return(
-        <div style={{width: '100%', height: '800px', position: 'relative'}}>
+        <div className='map' style={{width: '100%', height: '800px', position: 'relative'}}>
             <GoogleMapReact
                 ref={mapEl}
                 bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}
                 defaultCenter={defaults.center}
                 defaultZoom={defaults.zoom}
-                onChange={mapChangeHandler}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
             >
