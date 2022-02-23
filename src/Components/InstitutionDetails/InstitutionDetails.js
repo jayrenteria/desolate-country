@@ -6,6 +6,7 @@ import { Icon,
     TableRow, 
     TableHead, 
     TableContainer, 
+    Tooltip,
     Paper } from '@material-ui/core';
 
 import './styles.css';
@@ -32,9 +33,21 @@ function InstitutionDetails({ institution }) {
                                     {year.name}
                                 </TableCell>
                                 <TableCell>{year.year}</TableCell>
-                                <TableCell>{year.abuse_claim === true ? 
-                                    <Icon color="secondary">warning</Icon>:
-                                    <Icon color="primary">close</Icon>}</TableCell>
+                                <TableCell>
+                                    {year.abuse_claim === true ? (
+                                        <Tooltip title={<h2>Abuse claim</h2>} arrow>
+                                            <Icon color="secondary">warning</Icon>
+                                        </Tooltip>
+                                    ) : year.abuse_claim === 'Unknown' ? (
+                                        <Tooltip title={<h2>Unknown abuse claim status</h2>} arrow>
+                                            <Icon color="primary">help</Icon>
+                                        </Tooltip>
+                                    ) : (
+                                        <Tooltip title={<h2>No abuse claim</h2>} arrow>
+                                            <Icon color="primary">close</Icon>
+                                        </Tooltip>
+                                    )}
+                                </TableCell>
                             </TableRow>
                         ))}
                         </TableBody>
