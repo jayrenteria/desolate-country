@@ -32,7 +32,7 @@ function InstitutionDetails({ institution }) {
                                     {year.name}
                                 </TableCell>
                                 <TableCell>{year.year}</TableCell>
-                                <TableCell>{year.abuse_claim? 
+                                <TableCell>{year.abuse_claim === true ? 
                                     <Icon color="secondary">warning</Icon>:
                                     <Icon color="primary">close</Icon>}</TableCell>
                             </TableRow>
