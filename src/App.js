@@ -25,9 +25,8 @@ function App() {
   const [shownData, setShownData] = useState([]);
   const [sortValues, setSortValues] = useState({});
   const [stats, setStats] = useState({
-    claims: 0,
-    individualCount: 0,
-    claimsAtNativeInstitutions: 0,
+    individualsCount: 0,
+    individualsWithClaimsatNativeMissionsCount: 0,
   });
   const [names, setNames] = useState([]);
   const [names_of_institutions, setNamesOfInstitutions] = useState([]);
@@ -58,25 +57,26 @@ function App() {
 
   const calculateStats = (values) => {
     let individuals = [];
-    let individualCount = 0;
-    let claims = 0;
-    let claimsAtNativeInstitutions = 0;
+    let individualsWithClaimsatNativeMissions = []
+    let individualsCount = 0;
+    let individualsWithClaimsatNativeMissionsCount = 0;
     values.forEach((value) => {
-      if (value.abuse_claim) {
-        claims++;
-        if (value.native_serving_mission) {
-          claimsAtNativeInstitutions++;
-        }
-      }
       if (individuals.indexOf(value.name) === -1) {
-        individualCount++;
+        individualsCount++;
         individuals.push(value.name);
+      }
+      if (
+        value.abuse_claim &&
+        value.native_serving_mission &&
+        individualsWithClaimsatNativeMissions.indexOf(value.name) === -1
+      ) {
+        individualsWithClaimsatNativeMissionsCount++;
+        individualsWithClaimsatNativeMissions.push(value.name);
       }
     });
     setStats({
-      claims,
-      individualCount,
-      claimsAtNativeInstitutions,
+      individualsCount,
+      individualsWithClaimsatNativeMissionsCount,
     });
   };
 
@@ -123,7 +123,7 @@ function App() {
   };
 
   const classes = useStyles();
-
+  console.log(shownData);
   return (
     <div className="App">
       <Header />
