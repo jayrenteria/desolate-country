@@ -48,16 +48,13 @@ function FormFilter({
             </FormGroup>
             <div className="stats">
                 <div className="stat-group">
-                    <span className="stat-number">{stats.claims}</span>
-                    <span className="stat-label">Abuse<br/>Claims</span>
+                    <span className="stat-number">{stats.individualsCount}</span> 
+                    <span className="stat-label">Accused Individuals</span>
                 </div>
                 <div className="stat-group">
-                    <span className="stat-number">{stats.individualCount}</span> 
-                    <span className="stat-label">Individuals</span>
-                </div>
-                <div className="stat-group">
-                    <span className="stat-number">{stats.claimsAtNativeInstitutions}</span> 
-                    <span className="stat-label">Claims at<br/>Native Institutions</span>
+                    <span className="stat-number">{stats.individualsWithClaimsatNativeMissionsCount}</span> 
+                    <span className="stat-label">Individuals with Allegations from Native
+Missions</span>
                 </div>
             </div>
         </div>
