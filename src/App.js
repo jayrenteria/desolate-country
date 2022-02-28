@@ -107,6 +107,18 @@ function App() {
         items.push(data[key][type]);
       }
     });
+    // alphabetize
+    if (type === 'name') {
+      items.sort((a, b) => {
+        const aLastName = ((a.trim()).split(' ')).pop();
+        const bLastName = ((b.trim()).split(' ')).pop();
+        if (aLastName < bLastName) {return -1;}
+        if (aLastName > bLastName) {return 1;}
+        return 0;
+      })
+    } else {
+      items.sort();
+    }
     return items;
   };
 
