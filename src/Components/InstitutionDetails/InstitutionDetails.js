@@ -27,18 +27,18 @@ function InstitutionDetails({ institution }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                        {institution.years.map(year => (
-                            <TableRow key={`${institution.name_of_institution}-${year.year}-${year.name}`}>
+                        {Object.values(institution.priests).map(priest => (
+                            <TableRow key={`${institution.name_of_institution}-${priest.year}-${priest.name}`}>
                                 <TableCell component="th" scope="row">
-                                    {year.name}
+                                    {priest.name}
                                 </TableCell>
-                                <TableCell>{year.year}</TableCell>
+                                <TableCell>{priest.year}</TableCell>
                                 <TableCell>
-                                    {year.abuse_claim === true ? (
+                                    {priest.abuse_claim === true ? (
                                         <Tooltip title={<h2>Abuse claim</h2>} arrow>
                                             <Icon color="secondary">warning</Icon>
                                         </Tooltip>
-                                    ) : year.abuse_claim === 'Unknown' ? (
+                                    ) : priest.abuse_claim === 'Unknown' ? (
                                         <Tooltip title={<h2>Unknown abuse claim status</h2>} arrow>
                                             <Icon color="primary">help</Icon>
                                         </Tooltip>

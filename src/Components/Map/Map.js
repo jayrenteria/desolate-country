@@ -44,7 +44,7 @@ function Map({dataToShow, setInstitution}) {
                     longitude: item.longitude,
                     institution_type: item.institution_type,
                     native_serving_mission: item.native_serving_mission,
-                    years: [],
+                    priests: {},
                     abuse_claims: []
                 }
             }
@@ -54,7 +54,24 @@ function Map({dataToShow, setInstitution}) {
             ) {
                 data[`${item.latitude}-${item.longitude}`].abuse_claims.push(item.name);
             }
-            data[`${item.latitude}-${item.longitude}`].years.push(item)
+            if (!data[`${item.latitude}-${item.longitude}`].priests[item.name]) {
+                // add priest
+                data[`${item.latitude}-${item.longitude}`].priests[item.name] = {
+                    name: item.name,
+                    year: item.year,
+                    abuse_claim: item.abuse_claim
+                }
+            } else {
+                // update years
+                // TODO: what if there is a gap?
+                const newYears = data[`${item.latitude}-${item.longitude}`].priests[item.name].year.split('-')[0] + '-' + item.year.split('-')[1];
+                data[`${item.latitude}-${item.longitude}`].priests[item.name].year = newYears;
+                if (data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim !== true && item.abuse_claim === true) {
+                    data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim = true;
+                } else if (data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim !== true && item.abuse_claim === 'Unknown') {
+                    data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim = 'Unknown';
+                }
+            }
         }
         setMapData(data);
     }, [dataToShow.length])
