@@ -13,6 +13,7 @@ function Header() {
             <div className="info">
                 <p>Researched by Jack Downey and Kathleen Holscher</p>
                 <p>Data as of: Feb 10th, 2021</p>
+                <p>Data based on <a href="https://www.jesuitswest.org/wp-content/uploads/sites/13/2020/12/JW_List_1207_EnglishR12.pdf" target='_blank' >Jesuits West Province List of Credible Claims</a></p>
             </div>
         </div>
     )
