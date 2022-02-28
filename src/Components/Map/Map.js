@@ -4,6 +4,7 @@ import GoogleMapReact from 'google-map-react';
 
 import geoData from '../../data/BIA_National_LAR_geo.json';
 import Marker from '../Marker/Marker';
+import Instructions from '../Instructions/Instructions';
 
 import './styles.css';
 
@@ -78,6 +79,9 @@ function Map({dataToShow, setInstitution}) {
 
     return(
         <div className='map' style={{width: '100%', height: '800px', position: 'relative'}}>
+            <div className='button-container'>
+                <Instructions />
+            </div>
             <GoogleMapReact
                 ref={mapEl}
                 bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_KEY }}

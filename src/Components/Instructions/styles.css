@@ -1,0 +1,21 @@
+.instructions {
+    position: relative;
+}
+
+.instructions-popup {
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 1px 1px #999;
+    border-radius: 8px;
+    padding: 10px;
+    width: 300px;
+}
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #fff;
+    margin: 0 auto;
+  }

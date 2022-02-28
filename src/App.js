@@ -8,6 +8,7 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Article from "./Components/Article/Article";
 import { getData } from "./utils/getData";
+import Instructions from "./Components/Instructions/Instructions";
 
 const useStyles = makeStyles({
   title: {
@@ -144,8 +145,8 @@ function App() {
             <>
               <h2>Map Instructions</h2>
               <ol>
-                <li>Start by filtering this data by the names of the offenders, the institutions, and the range of years you would like to see.</li>
-                <li>Then, click on a hotspot/institution icon to get more information about that particular place.</li>
+                <li>You can filter the data to specific individuals or institutions, as well as the range of years you would like to see data for.</li>
+                <li>Then, click on a bubble to get more information about that particular institution.</li>
                 <li>Those details will show up here!</li>
               </ol>
             </>
