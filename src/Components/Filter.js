@@ -4,20 +4,13 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles({
     root: {
       marginBottom: 15,
-      width: '100%'
-    },
-    chips: {
-      display: 'flex',
-      flexWrap: 'wrap',
-    },
-      chip: {
-      margin: 2,
-    },
+      width: '100%',
+      textAlign: 'left'
+    }
   });
 
 function Filter({
@@ -27,7 +20,7 @@ function Filter({
     selected
 }) {
 
-    const handleChangeMultiple = (event) => {
+    const handleChange = (event) => {
         const { value } = event.target;
         setSelected(value);
     };
@@ -38,20 +31,13 @@ function Filter({
         <FormControl className={classes.root}>
             <InputLabel id={label + '-label'}>{label}</InputLabel>
             <Select
-                multiple
-                value={selected ?? []}
-                onChange={handleChangeMultiple}
+                value={selected ?? ''}
+                onChange={handleChange}
                 input={<Input/>}
                 labelId={label + '-label'}
                 id={label}
-                renderValue={(selected) => (
-                    <div className={classes.chips}>
-                    {selected.map((value) => (
-                        <Chip key={value} label={value} className={classes.chip}/>
-                    ))}
-                    </div>
-                )}
                 >
+                <MenuItem value=''>Select All</MenuItem>
                 {items.map((item, index) => (
                     <MenuItem key={`${item}-${index}`} value={item}>
                     {item}

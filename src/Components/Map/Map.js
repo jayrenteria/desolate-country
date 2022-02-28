@@ -45,9 +45,15 @@ function Map({dataToShow, setInstitution}) {
                     institution_type: item.institution_type,
                     native_serving_mission: item.native_serving_mission,
                     abuse_claims: item.abuse_claim === true ? 1 : 0,
-                    years: []
+                    years: [],
+                    trackedNames: []
                 }
-            } else if (item.abuse_claim === true) {
+            } else if (
+                item.abuse_claim === true
+                &&
+                !data[`${item.latitude}-${item.longitude}`].trackedNames.includes(item.name)
+            ) {
+                data[`${item.latitude}-${item.longitude}`].trackedNames.push(item.name);
                 data[`${item.latitude}-${item.longitude}`].abuse_claims += 1;
             }
             data[`${item.latitude}-${item.longitude}`].years.push(item)
