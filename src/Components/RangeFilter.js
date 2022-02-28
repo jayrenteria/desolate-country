@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import Slider from '@material-ui/core/Slider';
@@ -16,13 +16,21 @@ function valuetext(value) {
 
 export default function RangeFilter({
     setSelected,
-    label
+    label,
+    playbackValue = false
 }) {
   let min = 1890;
   let max = 2020;
 
   const classes = useStyles();
   const [value, setValue] = React.useState([min, max]);
+
+  useEffect(() => {
+    if (playbackValue) {
+      setValue(playbackValue);
+      setSelected(playbackValue);
+    }
+  }, [playbackValue])
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
