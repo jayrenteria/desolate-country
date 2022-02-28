@@ -37,6 +37,7 @@ function Filter({
                 labelId={label + '-label'}
                 id={label}
                 >
+                <MenuItem value=''>Select All</MenuItem>
                 {items.map((item, index) => (
                     <MenuItem key={`${item}-${index}`} value={item}>
                     {item}
