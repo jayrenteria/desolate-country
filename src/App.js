@@ -123,7 +123,7 @@ function App() {
   };
 
   const classes = useStyles();
-  console.log(shownData);
+  
   return (
     <div className="App">
       <Header />
