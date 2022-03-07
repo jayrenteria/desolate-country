@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, FormGroup, Typography } from '@material-ui/core';
+import { Button, FormGroup, Typography, IconButton } from '@material-ui/core';
+import { PlayCircleFilled, StopRounded } from '@material-ui/icons';
 import Filter from '../Filter';
 import RangeFilter from '../RangeFilter';
 
@@ -15,20 +16,30 @@ function FormFilter({
 
     const [nameSelected, setNameSelected] = useState(false);
     const [playbackValues, setPlaybackValues] = useState(false);
+    const [playbackRunning, setPlaybackRunning] = useState(false);
+    const [playbackInterval, setPlaybackInterval] = useState();
 
     const handleSelected = (result) => {
         updateSort('name', result);
         setNameSelected(result == "" ? false : true);
     }
 
-    const handlePlayback = () => {
+    const handlePlayback = (stopEarly) => {
+        if (stopEarly) {
+            clearInterval(playbackInterval);
+            setPlaybackRunning(false);
+            return;
+        }
         // increment value 1 year at a time from beginning
         let start = 1890;
+        setPlaybackRunning(true);
         const playback = setInterval(() => {
+            setPlaybackInterval(playback);
             setPlaybackValues([1890, start]);
             start++;
             if(start == 2020) {
-                clearInterval(playback);
+                clearInterval(playbackInterval);
+                setPlaybackRunning(false);
             }
         }, 200)
     }
@@ -39,10 +50,24 @@ function FormFilter({
                 <Typography>Filters</Typography>
                 <Filter label={'Name'} setSelected={result => handleSelected(result)} items={names} selected={sortValues['name']}/>
                 <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
-                <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} playbackValue={playbackValues}/>
+                <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} playbackValue={playbackValues} isPlayingBack={playbackRunning} />
                 {nameSelected &&
                     <div>
-                        <Button onClick={() => handlePlayback()}>Playback</Button>
+                        {playbackRunning ?
+                            <div className="playbutton-container">
+                                <IconButton onClick={() => handlePlayback(true)} disabled={!playbackRunning} color="primary">
+                                    <StopRounded />
+                                </IconButton>
+                                <p>Stop Path Playback</p>
+                            </div>
+                        :
+                            <div className="playbutton-container">
+                                <IconButton onClick={() => handlePlayback(false)} disabled={playbackRunning} color="primary">
+                                    <PlayCircleFilled />
+                                </IconButton>
+                                <p>Start Path Playback</p>
+                            </div>
+                        }
                     </div>
                 }
             </FormGroup>

@@ -17,7 +17,8 @@ function valuetext(value) {
 export default function RangeFilter({
     setSelected,
     label,
-    playbackValue = false
+    playbackValue = false,
+    isPlayingBack = false
 }) {
   let min = 1890;
   let max = 2020;
@@ -48,6 +49,7 @@ export default function RangeFilter({
             getAriaValueText={valuetext}
             min={min}
             max={max}
+            disabled={isPlayingBack}
         />
         <InputLabel id={label + '-label'}>{label}</InputLabel>
     </div>
