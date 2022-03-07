@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import "./App.css";
 import FormFilter from "./Components/FormFilter/FormFilter";
 import InstitutionDetails from "./Components/InstitutionDetails/InstitutionDetails";
@@ -8,17 +7,6 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Article from "./Components/Article/Article";
 import { getData } from "./utils/getData";
-import Instructions from "./Components/Instructions/Instructions";
-
-const useStyles = makeStyles({
-  title: {
-    flexGrow: 1,
-  },
-  appBar: {
-    padding: "15px 50px",
-    textAlign: "left",
-  },
-});
 
 function App() {
   const [fullData, setFullData] = useState([]);
@@ -121,8 +109,6 @@ function App() {
     }
     return items;
   };
-
-  const classes = useStyles();
   
   return (
     <div className="App">
