@@ -13,11 +13,23 @@
 }
 
 .map-container .form-container, .map-container .details-container {
-  min-width: 300px;
-  padding: 50px;
+  min-width: 350px;
+  padding: 30px;
   background: white;
   max-width: 20%;
   color: black;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 900px) {
+  .map-container {
+    flex-direction: column;
+  }
+  
+  .map-container .form-container, .map-container .details-container {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .details-container {
