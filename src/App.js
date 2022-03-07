@@ -135,6 +135,19 @@ function App() {
                 <li>Then, click on a bubble to get more information about that particular institution.</li>
                 <li>Those details will show up here!</li>
               </ol>
+              <h3>Key</h3>
+              <div class="marker-container">
+                  <div className='dot claim'/>
+                  <span className='key-label'>Accused</span>
+              </div>
+              <div class="marker-container">
+                  <div className='dot no-claim'/>
+                  <span className='key-label'>Not Accused</span>
+              </div>
+              <div class="marker-container">
+                  <div className='reservation'/>
+                  <span className='key-label'>Reservation Land</span>
+              </div>
             </>
           )}
         </div>
