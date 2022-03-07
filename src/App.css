@@ -23,6 +23,7 @@
 .details-container {
   overflow-y: scroll;
   max-height: 700px;
+  width: 400px;
 }
 
 .details-container ol {

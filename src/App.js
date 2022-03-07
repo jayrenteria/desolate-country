@@ -140,7 +140,7 @@ function App() {
         <Map dataToShow={shownData} setInstitution={setInstitution} />
         <div className="details-container">
           {institution ? (
-            <InstitutionDetails institution={institution} />
+            <InstitutionDetails institution={institution} setInstitution={setInstitution} />
           ) : (
             <>
               <h2>Map Instructions</h2>

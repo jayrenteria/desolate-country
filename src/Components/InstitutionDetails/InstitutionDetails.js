@@ -11,11 +11,18 @@ import { Icon,
 
 import './styles.css';
 
-function InstitutionDetails({ institution }) {
+function InstitutionDetails({ institution, setInstitution }) {
 
     return (
         <div className="info-window">
             <div className='content'>
+                <Icon
+                    onClick={() => setInstitution(null)}
+                    style={{
+                        float: 'right',
+                        cursor: 'pointer'
+                    }}
+                >close</Icon>
                 <h3>{institution.name_of_institution}</h3>
                 <TableContainer component={Paper}>
                     <Table aria-label="table">
