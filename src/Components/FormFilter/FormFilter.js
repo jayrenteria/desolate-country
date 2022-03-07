@@ -74,13 +74,12 @@ function FormFilter({
             </FormGroup>
             <div className="stats">
                 <div className="stat-group">
-                    <span className="stat-number">{stats.individualsCount}</span> 
                     <span className="stat-label">Accused Individuals</span>
+                    <span className="stat-number">{stats.individualsCount}</span> 
                 </div>
                 <div className="stat-group">
+                    <span className="stat-label">Individuals with Allegations from Native Missions</span>
                     <span className="stat-number">{stats.individualsWithClaimsatNativeMissionsCount}</span> 
-                    <span className="stat-label">Individuals with Allegations from Native
-Missions</span>
                 </div>
             </div>
         </div>
