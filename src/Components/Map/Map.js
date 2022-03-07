@@ -38,8 +38,11 @@ function Map({dataToShow, setInstitution}) {
         let data = {}
         for (let i = 0; i < dataToShow.length; i++) {
             const item = dataToShow[i];
-            if ( !data[`${item.latitude}-${item.longitude}`]) {
-                data[`${item.latitude}-${item.longitude}`] = {
+            // simplify GPS since there are accuracy issues
+            // TODO: remove toFixed when the data is normalized
+            const key = `${item.latitude.toFixed(3)}-${item.longitude.toFixed(3)}`;
+            if ( !data[key]) {
+                data[key] = {
                     name_of_institution: item.name_of_institution,
                     latitude: item.latitude,
                     longitude: item.longitude,
@@ -51,26 +54,36 @@ function Map({dataToShow, setInstitution}) {
             }
             if (
                 item.abuse_claim === true &&
-                !data[`${item.latitude}-${item.longitude}`].abuse_claims.includes(item.name)
+                !data[key].abuse_claims.includes(item.name)
             ) {
-                data[`${item.latitude}-${item.longitude}`].abuse_claims.push(item.name);
+                data[key].abuse_claims.push(item.name);
             }
-            if (!data[`${item.latitude}-${item.longitude}`].priests[item.name]) {
+            if (!data[key].priests[item.name]) {
                 // add priest
-                data[`${item.latitude}-${item.longitude}`].priests[item.name] = {
+                data[key].priests[item.name] = {
                     name: item.name,
                     year: item.year,
                     abuse_claim: item.abuse_claim
                 }
             } else {
                 // update years
-                // TODO: what if there is a gap?
-                const newYears = data[`${item.latitude}-${item.longitude}`].priests[item.name].year.split('-')[0] + '-' + item.year.split('-')[1];
-                data[`${item.latitude}-${item.longitude}`].priests[item.name].year = newYears;
-                if (data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim !== true && item.abuse_claim === true) {
-                    data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim = true;
-                } else if (data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim !== true && item.abuse_claim === 'Unknown') {
-                    data[`${item.latitude}-${item.longitude}`].priests[item.name].abuse_claim = 'Unknown';
+                const years = data[key].priests[item.name].year.split(', ');
+                const lastYear = years[years.length - 1];
+                if (lastYear.split('-')[1] == item.year.split('-')[0]) {
+                    // no gaps
+                    const newLast = lastYear.split('-')[0] + '-' + item.year.split('-')[1];
+                    years[years.length - 1] = newLast;
+                    data[key].priests[item.name].year = years.join(', ');
+                } else {
+                    // new gap
+                    years.push(item.year);
+                    data[key].priests[item.name].year = years.join(', ');
+                }
+
+                if (data[key].priests[item.name].abuse_claim !== true && item.abuse_claim === true) {
+                    data[key].priests[item.name].abuse_claim = true;
+                } else if (data[key].priests[item.name].abuse_claim !== true && item.abuse_claim === 'Unknown') {
+                    data[key].priests[item.name].abuse_claim = 'Unknown';
                 }
             }
         }
