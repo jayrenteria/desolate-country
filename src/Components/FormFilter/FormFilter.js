@@ -38,7 +38,8 @@ function FormFilter({
             setPlaybackValues([1890, start]);
             start++;
             if(start == 2020) {
-                clearInterval(playbackInterval);
+                setPlaybackValues([1890, start]);
+                clearInterval(playback);
                 setPlaybackRunning(false);
             }
         }, 200)
