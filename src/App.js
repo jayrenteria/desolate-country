@@ -121,6 +121,7 @@ function App() {
             sortValues={sortValues}
             stats={stats}
             updateSort={updateSort}
+            shownData={shownData}
           />
         </div>
         <Map dataToShow={shownData} setInstitution={setInstitution} />
