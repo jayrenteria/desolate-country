@@ -8,7 +8,7 @@ import Instructions from '../Instructions/Instructions';
 
 import './styles.css';
 
-function Map({dataToShow, setInstitution}) {
+function Map({dataToShow, setInstitution, setMapDataParent}) {
     const [mapData, setMapData] = useState({})
     const mapEl = useRef(null);
     // US default center/zoom
@@ -88,6 +88,7 @@ function Map({dataToShow, setInstitution}) {
             }
         }
         setMapData(data);
+        setMapDataParent(data);
     }, [dataToShow.length])
 
     return(
