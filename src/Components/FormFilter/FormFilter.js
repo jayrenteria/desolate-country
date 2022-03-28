@@ -11,7 +11,8 @@ function FormFilter({
     names_of_institutions,
     sortValues,
     stats,
-    updateSort
+    updateSort,
+    shownData
 }) {
 
     const [nameSelected, setNameSelected] = useState(false);
@@ -32,6 +33,13 @@ function FormFilter({
         }
         // increment value 1 year at a time from beginning
         let start = 1890;
+        // calculate first year if exists
+        if (shownData) {
+            const firstYear = shownData[0]?.year.split('-')[0];
+            if (firstYear) {
+                start = parseInt(firstYear);
+            }
+        }
         setPlaybackRunning(true);
         const playback = setInterval(() => {
             setPlaybackInterval(playback);
