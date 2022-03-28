@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import FormFilter from "./Components/FormFilter/FormFilter";
 import InstitutionDetails from "./Components/InstitutionDetails/InstitutionDetails";
+import IndividualDetails from "./Components/IndividualDetails/IndividualDetails";
 import Map from "./Components/Map/Map";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
@@ -11,6 +12,7 @@ import { getData } from "./utils/getData";
 function App() {
   const [fullData, setFullData] = useState([]);
   const [shownData, setShownData] = useState([]);
+  const [mapData, setMapData] = useState([]);
   const [sortValues, setSortValues] = useState({});
   const [stats, setStats] = useState({
     individualsCount: 0,
@@ -124,10 +126,14 @@ function App() {
             shownData={shownData}
           />
         </div>
-        <Map dataToShow={shownData} setInstitution={setInstitution} />
+        <Map dataToShow={shownData} setInstitution={setInstitution} setMapDataParent={setMapData} />
         <div className="details-container">
           {institution ? (
             <InstitutionDetails institution={institution} setInstitution={setInstitution} />
+          ) : sortValues.name ? (
+            <IndividualDetails name={sortValues.name} dataToShow={mapData} />
+          ) : sortValues.name_of_institution ? (
+            <InstitutionDetails institution={Object.values(mapData).find(item => item.name_of_institution === sortValues.name_of_institution)} setInstitution={setInstitution} />
           ) : (
             <>
               <h2>Map Instructions</h2>
