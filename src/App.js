@@ -143,15 +143,15 @@ function App() {
                 <li>Those details will show up here!</li>
               </ol>
               <h3>Key</h3>
-              <div class="marker-container">
+              <div className="marker-container">
                   <div className='dot claim'/>
                   <span className='key-label'>Institutions with Accusations</span>
               </div>
-              <div class="marker-container">
+              <div className="marker-container">
                   <div className='dot no-claim'/>
                   <span className='key-label'>Institutions, no Accusations</span>
               </div>
-              <div class="marker-container">
+              <div className="marker-container">
                   <div className='reservation'/>
                   <span className='key-label'>Reservation Land</span>
               </div>

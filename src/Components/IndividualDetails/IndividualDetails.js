@@ -27,8 +27,8 @@ function IndividualDetails({ name, dataToShow }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                        {Object.values(dataToShow).map(item => (
-                            <TableRow key={`${item.name_of_institution}`}>
+                        {Object.values(dataToShow).map((item, index) => (
+                            <TableRow key={`${item.name_of_institution}-${index}`}>
                                 <TableCell component="th" scope="row">
                                     {item.name_of_institution}
                                 </TableCell>
