@@ -12,11 +12,11 @@ import { Icon,
 import './styles.css';
 
 function IndividualDetails({ name, dataToShow }) {
-    
+
     return (
         <div className="info-window">
             <div className='content'>
-                <h3>{name}</h3>
+                <a href={Object.values(dataToShow?.[Object.keys(dataToShow)[0]]?.priests)?.[0]?.link} target="_blank"><h3>{name}</h3></a>
                 <TableContainer component={Paper}>
                     <Table aria-label="table">
                         <TableHead>

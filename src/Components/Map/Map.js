@@ -63,7 +63,8 @@ function Map({dataToShow, setInstitution, setMapDataParent}) {
                 data[key].priests[item.name] = {
                     name: item.name,
                     year: item.year,
-                    abuse_claim: item.abuse_claim
+                    abuse_claim: item.abuse_claim,
+                    link: item.link
                 }
             } else {
                 // update years
