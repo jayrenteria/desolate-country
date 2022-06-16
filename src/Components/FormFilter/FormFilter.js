@@ -50,7 +50,7 @@ function FormFilter({
                 clearInterval(playback);
                 setPlaybackRunning(false);
             }
-        }, 200)
+        }, 400)
     }
         
     return (
