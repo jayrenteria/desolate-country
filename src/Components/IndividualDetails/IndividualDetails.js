@@ -22,7 +22,7 @@ function IndividualDetails({ name, dataToShow }) {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Institution</TableCell>
-                                <TableCell>Academic Years</TableCell>
+                                <TableCell>Years at Institution</TableCell>
                                 <TableCell>Abuse Claim</TableCell>
                             </TableRow>
                         </TableHead>

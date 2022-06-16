@@ -29,7 +29,7 @@ function InstitutionDetails({ institution, setInstitution }) {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Name</TableCell>
-                                <TableCell>Academic Years</TableCell>
+                                <TableCell>Years at Institution</TableCell>
                                 <TableCell>Abuse Claim</TableCell>
                             </TableRow>
                         </TableHead>
