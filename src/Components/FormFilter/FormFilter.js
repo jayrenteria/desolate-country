@@ -67,7 +67,7 @@ function FormFilter({
                                 <IconButton onClick={() => handlePlayback(true)} disabled={!playbackRunning} color="primary">
                                     <StopRounded />
                                 </IconButton>
-                                <p>Stop Path Playback</p>
+                                <p>Stop movement</p>
                             </div>
                         :
                             <div className="playbutton-container">
