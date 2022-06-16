@@ -58,7 +58,7 @@ function FormFilter({
             <FormGroup>
                 <Typography>Filters</Typography>
                 <Filter label={'Name'} setSelected={result => handleSelected(result)} items={names} selected={sortValues['name']}/>
-                <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution', result)} items={names_of_institutions} selected={sortValues['name_of_institution']}/>
+                <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution_by_location', result)} items={names_of_institutions} selected={sortValues['name_of_institution_by_location']}/>
                 <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} playbackValue={playbackValues} isPlayingBack={playbackRunning} />
                 {nameSelected &&
                     <div>

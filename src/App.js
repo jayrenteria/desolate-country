@@ -27,7 +27,7 @@ function App() {
     setFullData(data);
     setShownData(data);
     setNames(getItems("name", data));
-    setNamesOfInstitutions(getItems("name_of_institution", data));
+    setNamesOfInstitutions(getItems("name_of_institution_by_location", data));
   }, []);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function App() {
       let nameMatches = checkForMatch(sortValues, "name", data);
       let institutionMatches = checkForMatch(
         sortValues,
-        "name_of_institution",
+        "name_of_institution_by_location",
         data
       );
       let yearMatches = checkForYears(sortValues, data);
@@ -132,8 +132,8 @@ function App() {
             <InstitutionDetails institution={institution} setInstitution={setInstitution} />
           ) : sortValues.name ? (
             <IndividualDetails name={sortValues.name} dataToShow={mapData} />
-          ) : sortValues.name_of_institution ? (
-            <InstitutionDetails institution={Object.values(mapData).find(item => item.name_of_institution === sortValues.name_of_institution)} setInstitution={setInstitution} />
+          ) : sortValues.name_of_institution_by_location ? (
+            <InstitutionDetails institution={Object.values(mapData).find(item => item.name_of_institution_by_location === sortValues.name_of_institution_by_location)} setInstitution={setInstitution} />
           ) : (
             <>
               <h2>Map Instructions</h2>
