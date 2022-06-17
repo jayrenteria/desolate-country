@@ -44,6 +44,7 @@ function Map({dataToShow, setInstitution, setMapDataParent}) {
             if ( !data[key]) {
                 data[key] = {
                     name_of_institution: item.name_of_institution,
+                    name_of_institution_by_location: item.name_of_institution_by_location,
                     latitude: item.latitude,
                     longitude: item.longitude,
                     institution_type: item.institution_type,
