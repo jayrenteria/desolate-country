@@ -87,7 +87,12 @@ function App() {
   };
 
   const updateSort = (key, values) => {
-    setSortValues({ ...sortValues, [key]: values });
+    // only preserve previous sort with years
+    if (key === 'year') {
+      setSortValues({ ...sortValues, [key]: values });
+    } else {
+      setSortValues({ [key]: values });
+    }
   };
 
   const getItems = (type, data) => {

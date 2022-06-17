@@ -8,6 +8,7 @@ import { Icon,
     TableContainer, 
     Tooltip,
     Paper } from '@material-ui/core';
+import isEmpty from 'lodash/isEmpty';
 
 import './styles.css';
 
@@ -16,7 +17,7 @@ function IndividualDetails({ name, dataToShow }) {
     return (
         <div className="info-window">
             <div className='content'>
-                <a href={Object.values(dataToShow?.[Object.keys(dataToShow)[0]]?.priests)?.[0]?.link} target="_blank"><h3>{name}</h3></a>
+                <a href={!isEmpty(dataToShow) ? Object.values(dataToShow?.[Object.keys(dataToShow)[0]]?.priests)?.[0]?.link : null} target="_blank"><h3>{name}</h3></a>
                 <TableContainer component={Paper}>
                     <Table aria-label="table">
                         <TableHead>
@@ -55,7 +56,7 @@ function IndividualDetails({ name, dataToShow }) {
                 </TableContainer>
             </div>
         </div>
-    )
+    );
 };
 
 export default IndividualDetails;
