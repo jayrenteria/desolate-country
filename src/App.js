@@ -51,17 +51,19 @@ function App() {
     let individualsCount = 0;
     let individualsWithClaimsatNativeMissionsCount = 0;
     values.forEach((value) => {
-      if (individuals.indexOf(value.name) === -1) {
-        individualsCount++;
-        individuals.push(value.name);
-      }
-      if (
-        value.abuse_claim &&
-        value.native_serving_mission &&
-        individualsWithClaimsatNativeMissions.indexOf(value.name) === -1
-      ) {
-        individualsWithClaimsatNativeMissionsCount++;
-        individualsWithClaimsatNativeMissions.push(value.name);
+      if (value.abuse_claim === true) {
+        if (individuals.indexOf(value.name) === -1) {
+          individualsCount++;
+          individuals.push(value.name);
+        }
+        if (
+          value.abuse_claim &&
+          value.native_serving_mission &&
+          individualsWithClaimsatNativeMissions.indexOf(value.name) === -1
+        ) {
+          individualsWithClaimsatNativeMissionsCount++;
+          individualsWithClaimsatNativeMissions.push(value.name);
+        }
       }
     });
     setStats({
