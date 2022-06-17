@@ -131,7 +131,7 @@ function App() {
             shownData={shownData}
           />
         </div>
-        <Map dataToShow={shownData} setInstitution={setInstitution} setMapDataParent={setMapData} />
+        <Map dataToShow={shownData} setInstitution={setInstitution} setMapDataParent={setMapData} sortValues={sortValues} />
         <div className="details-container">
           {institution ? (
             <InstitutionDetails institution={institution} setInstitution={setInstitution} />

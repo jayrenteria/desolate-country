@@ -8,7 +8,7 @@ import Instructions from '../Instructions/Instructions';
 
 import './styles.css';
 
-function Map({dataToShow, setInstitution, setMapDataParent}) {
+function Map({dataToShow, setInstitution, setMapDataParent, sortValues}) {
     const [mapData, setMapData] = useState({})
     const mapEl = useRef(null);
     // US default center/zoom
@@ -115,6 +115,7 @@ function Map({dataToShow, setInstitution, setMapDataParent}) {
                             text={item.name_of_institution}
                             institution={item}
                             setInstitution={setInstitution}
+                            sortValues={sortValues}
                         />
                     )
                 })}
