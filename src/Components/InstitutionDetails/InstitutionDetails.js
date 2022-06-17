@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import { Icon, 
     Table, 
     TableCell, 
@@ -34,7 +34,13 @@ function InstitutionDetails({ institution, setInstitution }) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                        {Object.values(institution?.priests || {}).map(priest => (
+                        {Object.values(institution?.priests || {}).sort((a, b) => {
+                            const aLastName = ((a.name.trim()).split(' ')).pop();
+                            const bLastName = ((b.name.trim()).split(' ')).pop();
+                            if (aLastName < bLastName) {return -1;}
+                            if (aLastName > bLastName) {return 1;}
+                            return 0;
+                        }).map(priest => (
                             <TableRow key={`${institution.name_of_institution}-${priest.year}-${priest.name}`}>
                                 <TableCell component="th" scope="row">
                                     {priest.name}
