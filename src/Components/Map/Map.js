@@ -28,6 +28,7 @@ function Map({dataToShow, setInstitution, setMapDataParent, sortValues}) {
             mapEl.current.data.addGeoJson(
                 geoData
             )
+            // this is for curveRings that we had to pull directly via query
             mapEl.current.data.addGeoJson(
                 curvedGeoData
             )
