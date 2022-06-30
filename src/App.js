@@ -92,6 +92,9 @@ function App() {
     // only preserve previous sort with years
     if (key === 'year') {
       setSortValues({ ...sortValues, [key]: values });
+    } else if (key === 'name_of_institution_by_location') {
+      setInstitution(null);
+      setSortValues({ [key]: values });
     } else {
       setSortValues({ [key]: values });
     }
