@@ -136,11 +136,11 @@ function App() {
         <Map dataToShow={shownData} setInstitution={setInstitution} setMapDataParent={setMapData} sortValues={sortValues} />
         <div className="details-container">
           {institution ? (
-            <InstitutionDetails institution={institution} setInstitution={setInstitution} />
+            <InstitutionDetails institution={institution} setInstitution={setInstitution} institutionSort={false} />
           ) : sortValues.name ? (
             <IndividualDetails name={sortValues.name} dataToShow={mapData} />
           ) : sortValues.name_of_institution_by_location ? (
-            <InstitutionDetails institution={Object.values(mapData).find(item => item.name_of_institution_by_location === sortValues.name_of_institution_by_location)} setInstitution={setInstitution} />
+            <InstitutionDetails institution={Object.values(mapData).find(item => item.name_of_institution_by_location === sortValues.name_of_institution_by_location)} setInstitution={setInstitution} institutionSort={true} />
           ) : (
             <>
               <h2>Map Instructions</h2>
