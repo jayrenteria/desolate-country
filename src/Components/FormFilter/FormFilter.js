@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, FormGroup, Typography, IconButton } from '@material-ui/core';
 import { PlayCircleFilled, StopRounded } from '@material-ui/icons';
 import Filter from '../Filter';
@@ -16,14 +16,20 @@ function FormFilter({
 }) {
 
     const [nameSelected, setNameSelected] = useState(false);
+    const [institutionSelected, setInstitutionSelected] = useState(false);
     const [playbackValues, setPlaybackValues] = useState(false);
     const [playbackRunning, setPlaybackRunning] = useState(false);
     const [playbackInterval, setPlaybackInterval] = useState();
 
-    const handleSelected = (result) => {
-        updateSort('name', result);
-        setNameSelected(result == "" ? false : true);
-    }
+    useEffect(() => {
+        if ('name' in sortValues) {
+            setNameSelected(true);
+            setInstitutionSelected(false);
+        } else if ('name_of_institution_by_location' in sortValues) {
+            setInstitutionSelected(true);
+            setNameSelected(false);
+        }
+    }, [sortValues])
 
     const handlePlayback = (stopEarly) => {
         if (stopEarly) {
@@ -57,10 +63,10 @@ function FormFilter({
         <div>
             <FormGroup>
                 <Typography>Filters</Typography>
-                <Filter label={'Name'} setSelected={result => handleSelected(result)} items={names} selected={sortValues['name']}/>
+                <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
                 <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution_by_location', result)} items={names_of_institutions} selected={sortValues['name_of_institution_by_location']}/>
                 <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} playbackValue={playbackValues} isPlayingBack={playbackRunning} />
-                {nameSelected &&
+                {nameSelected && !institutionSelected &&
                     <div>
                         {playbackRunning ?
                             <div className="playbutton-container">

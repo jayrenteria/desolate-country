@@ -3,6 +3,7 @@ import React, {useState, useRef, useEffect} from 'react';
 import GoogleMapReact from 'google-map-react';
 
 import geoData from '../../data/BIA_National_LAR_geo.json';
+import curvedGeoData from '../../data/BIA_National_LAR_curved_geo.json';
 import Marker from '../Marker/Marker';
 import Instructions from '../Instructions/Instructions';
 
@@ -26,6 +27,10 @@ function Map({dataToShow, setInstitution, setMapDataParent, sortValues}) {
             // add geo json is for direct files not urls
             mapEl.current.data.addGeoJson(
                 geoData
+            )
+            // this is for curveRings that we had to pull directly via query
+            mapEl.current.data.addGeoJson(
+                curvedGeoData
             )
             mapEl.current.data.setStyle({
                 fillColor: "orange",

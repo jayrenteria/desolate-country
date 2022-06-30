@@ -166,7 +166,7 @@ function App() {
           )}
         </div>
       </div>
-      {/* <Article /> */}
+      <Article />
       <Footer />
     </div>
   );
