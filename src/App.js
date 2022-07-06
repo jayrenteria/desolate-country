@@ -66,6 +66,9 @@ function App() {
         }
       }
     });
+    let filtered = values.map(value => value.name);
+    filtered = filtered.filter(value => !individuals.includes(value));
+    filtered = [...new Set(filtered)];
     setStats({
       individualsCount,
       individualsWithClaimsatNativeMissionsCount,

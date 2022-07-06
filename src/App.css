@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: #d1d5d0;
 }
 
 .map-container {
@@ -15,7 +16,7 @@
 .map-container .form-container, .map-container .details-container {
   min-width: 350px;
   padding: 30px;
-  background: white;
+  background: #d1d5d0;
   max-width: 20%;
   color: black;
   box-sizing: border-box;
