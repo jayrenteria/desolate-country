@@ -99,7 +99,7 @@ function Map({dataToShow, setInstitution, setMapDataParent, sortValues}) {
     }, [dataToShow.length])
 
     return(
-        <div className='map' style={{width: '100%', height: '800px', position: 'relative'}}>
+        <div className='map' style={{width: '100%', height: '800px', position: 'relative', backgroundColor: 'black', padding: 5}}>
             <div className='button-container'>
                 <Instructions />
             </div>
