@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, FormGroup, Typography, IconButton } from '@material-ui/core';
+import { FormGroup, IconButton } from '@material-ui/core';
 import { PlayCircleFilled, StopRounded } from '@material-ui/icons';
 import Filter from '../Filter';
 import RangeFilter from '../RangeFilter';
@@ -62,7 +62,7 @@ function FormFilter({
     return (
         <div>
             <FormGroup>
-                <Typography>Filters</Typography>
+                <h2>Filters</h2>
                 <Filter label={'Name'} setSelected={result => updateSort('name', result)} items={names} selected={sortValues['name']}/>
                 <Filter label={'Institution'} setSelected={result => updateSort('name_of_institution_by_location', result)} items={names_of_institutions} selected={sortValues['name_of_institution_by_location']}/>
                 <RangeFilter label={'Year Range'} setSelected={result => updateSort('year', result)} playbackValue={playbackValues} isPlayingBack={playbackRunning} />

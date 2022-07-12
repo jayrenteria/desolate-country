@@ -40,7 +40,7 @@ function Article() {
         <p>
           As you explore institutions, we invite you to ask questions: At what types of institutions, in what parts of the US and on which Native lands, did abusing priests proliferate? What do these clusters suggest about the causes and the character—as well as the consequences-- of clerical sexual abuse?
         </p>
-        <p>This map is by Jack Downey of University of Rochester (j.downey@rochester.edu) and Kathleen Holscher of University of New Mexico (kholscher@unm.edu). We are grateful to the Religion and Sexual Abuse Project for support that made this map possible.</p>
+        <p>This map is by Jack Downey of University of Rochester (j.downey@rochester.edu) and Kathleen Holscher of University of New Mexico (kholscher@unm.edu). We are grateful to the <a href="https://www.religionandsexualabuseproject.org/" target="_blank">Religion and Sexual Abuse Project</a> for support that made this map possible.</p>
       </article>
     </Container>
   );
