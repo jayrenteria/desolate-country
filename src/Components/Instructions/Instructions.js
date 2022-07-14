@@ -26,7 +26,7 @@ function Instructions() {
                         </div>
                         <div className="marker-container">
                             <div className='dot no-claim'/>
-                            <span className='key-label'>Institutions, No Accusations</span>
+                            <span className='key-label'>Institutions without Accusations</span>
                         </div>
                         <div className="marker-container">
                             <div className='reservation'/>
